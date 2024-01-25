@@ -1,0 +1,1 @@
+This website uses LARAVEL, LARAVEL LIVEWIRE, LARAVEL BLADE, Bootstrap 5.1v, jQuery, bootstrapdash
