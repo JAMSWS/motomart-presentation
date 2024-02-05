@@ -7,11 +7,17 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h4>Add Products
+                <h4>Edit Products
                     <a href="{{ url('admin/products')}}" class="btn btn-danger text-white float-end">Back</a>
                 </h4>
             </div>
             <div class="card-body">
+
+                @if(session('message'))
+
+                <h4 class="alert alert-success mb-2">{{ session('message') }}</h4>
+                @endif
+
 
                 @if ($errors->any())
                 <div class="alert alert-warning">
@@ -23,8 +29,9 @@
                 </div>
                 @endif
 
-                <form action="{{ url('admin/products') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('admin/products/'.$product->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
 
 
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -52,19 +59,19 @@
 
                                 @foreach ($categories as $category)
 
-                                <option value="{{ $category->id }}"> {{  $category->name }}</option>
+                                <option value="{{ $category->id }}" {{ $category->id == $product->category_id ? 'selected' : ''}}> {{  $category->name }}</option>
                                 @endforeach
 
                             </select>
                         </div>
                         <div class="mb-3">
                             <label>Product Name</label>
-                            <input type="text" name="name" class="form-control">
+                            <input type="text" name="name" value="{{ $product->name }}" class="form-control">
                         </div>
 
                         <div class="mb-3">
                             <label>Product Slug</label>
-                            <input type="text" name="slug" class="form-control">
+                            <input type="text" name="slug" value="{{ $product->slug }}" class="form-control">
                         </div>
 
                         <div class="mb-3">
@@ -73,7 +80,7 @@
 
                                 @foreach ($brands as $brand)
 
-                                <option value="{{ $brand->name }}"> {{  $brand->name }}</option>
+                                <option value="{{ $brand->name }}" {{ $brand->name == $product->brand ? 'selected' : ''}}> {{  $brand->name }}</option>
                                 @endforeach
 
                             </select>
@@ -82,12 +89,12 @@
 
                         <div class="mb-3">
                         <label>Small Description (500 Words)</label>
-                        <textarea name="small_description" class="form-control" rows="10"></textarea>
+                        <textarea name="small_description" class="form-control" rows="10">{{ $product->small_description }}</textarea>
                         </div>
 
                         <div class="mb-3">
                         <label>Description</label>
-                        <textarea name="description" class="form-control" rows="10"></textarea>
+                        <textarea name="description" class="form-control" rows="10">{{ $product->description }}</textarea>
                         </div>
 
 
@@ -96,17 +103,17 @@
 
                         <div class="mb-3">
                             <label>Meta title</label>
-                            <input type="text" name="meta_title" class="form-control">
+                            <input type="text" name="meta_title" value="{{ $product->meta_title }}" class="form-control">
                         </div>
 
                         <div class="mb-3">
                             <label>Meta Description</label>
-                            <textarea name="meta_description" class="form-control" rows="10"></textarea>
+                            <textarea name="meta_description" class="form-control" rows="10">{{ $product->meta_description }}</textarea>
                         </div>
 
                         <div class="mb-3">
                             <label>Meta Keyword</label>
-                            <textarea name="meta_keyword" class="form-control" rows="10"></textarea>
+                            <textarea name="meta_keyword" class="form-control" rows="10">{{ $product->meta_keyword }}</textarea>
                         </div>
 
                     </div>
@@ -117,27 +124,27 @@
 
                                     <div class="mb-3">
                                         <label>Original price</label>
-                                        <input type="text" name="original_price" class="form-control">
+                                        <input type="text" name="original_price" value="{{ $product->original_price }}" class="form-control">
                                     </div>
 
                                     <div class="mb-3">
                                         <label>Selling price</label>
-                                        <input type="text" name="selling_price" class="form-control">
+                                        <input type="text" name="selling_price" value="{{ $product->selling_price }}" class="form-control">
                                     </div>
 
                                     <div class="mb-3">
                                         <label>Quantity</label>
-                                        <input type="text" name="quantity" class="form-control">
+                                        <input type="text" name="quantity" value="{{ $product->quantity }}" class="form-control">
                                     </div>
 
                                     <div class="mb-3">
                                         <label>Trending</label>
-                                        <input type="checkbox" name="trending" >
+                                        <input type="checkbox" value="{{ $product->trending == '1' ? 'checked' : '' }}" name="trending" />
                                     </div>
 
                                     <div class="mb-3">
                                         <label>Status</label>
-                                        <input type="checkbox" name="status" >
+                                        <input type="checkbox" value="{{ $product->status == '1' ? 'checked' : '' }}" name="status" />
                                     </div>
 
                                 </div>
@@ -150,12 +157,33 @@
                             <input type="file" name="image[]" multiple class="form-control"/>
 
                         </div>
+                        <div>
+                            @if($product->productImages)
+                            <div class="row">
+                                @foreach ($product->productImages as $image)
+                                <div class="col-md-2">
+                                    <img src="{{ asset($image->image) }}" style="width:200px; heigth:200px" class="me-4 border" alt="img"/>
+                                    <a href="{{ url('admin/product-image/'.$image->id.'/delete') }}" class="d-block">Remove</a>
+
+
+
+                                </div>
+                                @endforeach
+                            </div>
+
+
+
+                             @else
+
+                            <h5>No image added</h5>
+                            @endif
+                        </div>
 
                     </div>
                   </div>
 
-                  <div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                  <div class="py-2 float-end">
+                        <button type="submit" class="btn btn-primary">Edit</button>
                   </div>
 
                 </form>
