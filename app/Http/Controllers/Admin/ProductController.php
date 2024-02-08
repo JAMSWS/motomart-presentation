@@ -11,6 +11,7 @@ use App\Models\ProductImage;
 use Illuminate\Support\Facades\File;
 use illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\Color;
 
 
 
@@ -27,7 +28,8 @@ class ProductController extends Controller
     {
         $categories = Category::all();
         $brands = Brand::all();
-        return view('admin.products.create', compact('categories', 'brands'));
+        $colors = Color::Where('status', '0')->get();
+        return view('admin.products.create', compact('categories', 'brands', 'colors'));
     }
 
     public function store(ProductFormRequest $request)
@@ -81,6 +83,11 @@ class ProductController extends Controller
         $categories = Category::all();
         $brands = Brand::all();
         $product = Product::findOrFail($product_id);
+        $product_color = $product->productColors->pluck('color_id')->toArray();
+        $colors = Color::whereNotIn('id',$product_color)->get();
+
+
+
         return view('admin.products.edit', compact('categories','brands','product'));
     }
 
@@ -129,6 +136,18 @@ class ProductController extends Controller
             }
         }
 
+        if($request->colors)
+        {
+            foreach($request->colors as $key => $color)
+            {
+                $product->productColors()->create([
+                    'product_id' => $product->id,
+                    'color_id' => $color,
+                    'quantity' => $request->colorquantity[$key] ?? 0
+
+                ]);
+            }
+        }
 
         return redirect('/admin/products')->with('message', 'Product Updated Successfully');
 

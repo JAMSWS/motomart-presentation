@@ -3,7 +3,7 @@
 
 
         <li class="nav-item">
-            <a class="nav-link" href="category">
+            <a class="nav-link" href="dashboard">
               <i class="mdi mdi-view-dashboard menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
@@ -36,10 +36,26 @@
           <span class="menu-title">Brands</span>
         </a>
       </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('admin/colors') }}">
+          <i class="mdi mdi-view-headline menu-icon"></i>
+          <span class="menu-title">Colors</span>
+        </a>
+      </li>
+
+
       <li class="nav-item">
         <a class="nav-link" href="#">
           <i class="mdi mdi-chart-pie menu-icon"></i>
           <span class="menu-title">History</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('admin/sliders') }}">
+          <i class="mdi mdi-chart-pie menu-icon"></i>
+          <span class="menu-title">Home Slider</span>
         </a>
       </li>
       {{-- <li class="nav-item">
