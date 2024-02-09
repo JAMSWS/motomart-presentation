@@ -29,6 +29,9 @@ class LoginController extends Controller
      */
    // protected $redirectTo = '/home';
 
+   
+
+
    protected function authenticated()
     {
         if(Auth::user()->role_as == '1'){
@@ -47,4 +50,8 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+
+
+
 }

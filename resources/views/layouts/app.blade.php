@@ -3,6 +3,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,7 +29,7 @@
         rel="stylesheet"
         />
 
-        
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -46,6 +47,13 @@
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('assets/css/slider.css') }}">
+
+    {{-- Login & register styles --}}
+
+     <link rel="stylesheet" href="{{ asset('assets/css-login/style.css') }}">
+
+     <link rel="stylesheet" href="{{ asset('assets/css-login/css/demo.css') }}">
 
 
 
@@ -58,7 +66,13 @@
 <body style="background-color: #D9D9D9">
     <div id="app">
 
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+
+
+
+        @include('layouts.inc.frontend.navbar')
+
+
+        {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
 
 
@@ -77,47 +91,36 @@
 
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
 
                     </ul>
 
-                    {{-- search bar --}}
-
-                    <div class="input-group">
-                        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                        <button type="button" class="btn btn-outline-primary" data-mdb-ripple-init><i class="mdi mdi-magnify"></i></button>
-
-
-                      </div>
-
-
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
 
-                        {{-- shopping cart --}}
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="mdi mdi-cart lg" ></i></a>
-
-
-                        </li>
-
                         <!-- Authentication Links -->
+
                         @guest
+
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-
-
+                                    <a class="nav-link"  data-toggle="modal" data-target="#loginModal">{{ __('Login') }}</a>
                                 </li>
                             @endif
+
 
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" id="registerButton"  data-toggle="modal" data-target="#registermodal">{{ __('Register') }}</a>
                                 </li>
                             @endif
+
+
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -136,23 +139,112 @@
                                     </form>
                                 </div>
                             </li>
-                        @endguest
+                        @endif
+
+
+                       <!-- Include login modal -->
+                        @if (Route::has('login') && !Auth::check())
+                             @include('auth.modal-login')
+                        @endif
+
+                        <!-- Include register modal -->
+                        @if (Route::has('register') && !Auth::check())
+                             @include('auth.modal-register')
+                        @endif
+
                     </ul>
+
                 </div>
+
+
             </div>
-        </nav>
+        </nav> --}}
+
+
 
         <main class="py-4">
             @yield('content')
         </main>
     </div>
 
+
     <!-- Scripts -->
-    @vite(['public/assets/js/jquery-3.7.1.min.js'])
-    @vite(['public/assets/js/bootstrap.bundle.min.js'])
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+
+
+    <!-- Custom JavaScript for modal switching -->
+<script>
+    $(document).ready(function() {
+        $('#switchToRegister').click(function() {
+            $('#loginModal').modal('hide');
+            $('#registermodal').modal('show');
+        });
+
+        $('#switchToLogin').click(function() {
+            $('#registermodal').modal('hide');
+            $('#loginModal').modal('show');
+        });
+    });
+</script>
+
+    <!-- Custom JavaScript for modal closing -->
+<script>
+
+
+    $(document).ready(function() {
+        // Function to handle hiding the modal and resetting form fields
+        function closeModal(modalId) {
+            $(modalId).modal('hide'); // Hide the modal
+            $(modalId).find('form')[0].reset(); // Reset form fields on close
+        }
+
+        // Click event handler for the close button in login modal
+        $('#loginModal .close').click(function() {
+            closeModal('#loginModal');
+        });
+
+        // Click event handler for the close button in register modal
+        $('#registermodal .close').click(function() {
+            closeModal('#registermodal');
+        });
+
+        // Click event handler for clicking outside the modal
+        $('#loginModal, #registermodal').on('click', function(event) {
+            if (event.target == this) {
+                closeModal($(this));
+            }
+        });
+
+        // Function to switch between login and register modals
+        $('#switchToRegister').click(function() {
+            closeModal('#loginModal');
+            $('#registermodal').modal('show');
+        });
+
+        $('#switchToLogin').click(function() {
+            closeModal('#registermodal');
+            $('#loginModal').modal('show');
+        });
+    });
+</script>
+
+
+    {{-- Login & register script --}}
+    <script  src="{{ asset('assets/js-login/script.js') }}"></script>
+
+    <!-- Scripts -->
+    {{-- @vite(['public/assets/js/jquery-3.7.1.min.js']) --}}
+    {{-- @vite(['public/assets/js/bootstrap.bundle.min.js']) --}}
     @vite(['public/assets/js/bootstrap.js'])
     @vite(['public/assets/js/custom.js'])
 
     @livewireStyles
+
+
+
+
+
 </body>
+
 </html>

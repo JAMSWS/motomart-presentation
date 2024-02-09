@@ -4,7 +4,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="exampleModalLabel">Add Brands</h1>
-              <button type="button"  wire:click="closeModal"class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" wire:click="closeModal"class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
 
@@ -91,7 +91,7 @@
         </div>
       </div>
 
-               <!-- Brand update modal -->
+               <!-- Brand Delete modal -->
     <div wire:ignore.self  class="modal fade" id="deleteBrandModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
