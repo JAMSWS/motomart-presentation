@@ -20,9 +20,9 @@
 
 
     <div class="top-navbar bg-danger">
-        <div class="container-fluid">
+        <div class="container-fluid"  >
             <div class="row">
-                <div class="col-md-2 my-auto d-none d-sm-none d-md-block d-lg-block">
+                <div class="col-md-2 my-auto d-none d-sm-none d-md-block d-lg-block" >
                     <a class="navbar-brand" style="font-size: 30px" href="{{ url('/') }}">
                         <img style="width:200px" src="{{ asset('assets/images/motomart.png') }}" alt="">
                     </a>
@@ -30,7 +30,7 @@
                 <div class="col-md-5 my-auto">
                     <form role="search">
                         <div class="input-group">
-                            <input type="search" placeholder="Search your product" class="form-control" />
+                            <input type="search" placeholder="Search your parts now!" class="form-control"  />
                             <button class="btn bg-white" type="submit">
                                 <i class="fa fa-search"></i>
                             </button>
@@ -45,11 +45,7 @@
                                 <i class="fa fa-shopping-cart"></i> Cart (0)
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="fa fa-heart"></i> Wishlist (0)
-                            </a>
-                        </li>
+
 
                     @guest
 
@@ -132,32 +128,24 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="{{ url('/') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">All Categories</a>
+                        <a class="nav-link" href="{{ url('/collections') }}">All Categories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">New Arrivals</a>
+                        <a class="nav-link" href="{{ url('/mew-arrivals') }}">New Arrivals</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Featured Products</a>
+                        <a class="nav-link" href="{{ url('/') }}">Featured Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Electronics</a>
+                        <a class="nav-link" href="{{ url('/') }}">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Fashions</a>
+                        <a class="nav-link" href="{{ url('/') }}">Fashions</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Accessories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Appliances</a>
-                    </li>
+                    
                 </ul>
             </div>
         </div>

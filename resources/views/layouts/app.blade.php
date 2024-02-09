@@ -63,7 +63,7 @@
     @livewireStyles
 
 </head>
-<body style="background-color: #D9D9D9">
+<body style="background-color: #ffffff">
     <div id="app">
 
 
@@ -162,7 +162,7 @@
 
 
 
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
     </div>

@@ -19,8 +19,20 @@ use Illuminate\Support\Facades\Auth;
 // });
 
 Auth::routes();
-
+// Landing Page
 Route::get('/',[App\Http\Controllers\Frontend\FrontendController::class, 'index']);
+
+//Collections
+Route::get('/collections', [App\Http\Controllers\Frontend\FrontendController::class, 'categories']);
+
+// Check out
+Route::get('/checkout', [App\Http\Controllers\Frontend\CheckoutController::class, 'index']);
+
+// Forum
+Route::get('/forum', [App\Http\Controllers\Frontend\ForumController::class,'index']);
+
+//Shopping Cart
+Route::get('/shoppingcart', [App\Http\Controllers\Frontend\ShoppingCartController::class,'index']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
