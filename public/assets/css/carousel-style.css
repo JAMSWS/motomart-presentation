@@ -59,6 +59,7 @@ body {
   text-align: left;
   background-color: #fff; }
 
+
 [tabindex="-1"]:focus {
   outline: 0 !important; }
 
@@ -8241,7 +8242,11 @@ h1, h2, h3, h4, h5,
   touch-action: pan-y; }
 
 .hero {
-  position: relative; }
+  position: relative;
+
+ }
+
+
 
 .work {
   width: 100%; }

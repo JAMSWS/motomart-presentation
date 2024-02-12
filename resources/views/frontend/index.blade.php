@@ -131,6 +131,104 @@
     </div> --}}
 </section>
 
+<!-- product section -->
+<section class="product_section layout_padding" style="background-color: #eee;" >
+    <div class="container">
+       <div class="heading_container heading_center">
+          <h2>
+             Featured <span>products</span>
+          </h2>
+       </div>
+       <div class="row">
+          <div class="col-sm-6 col-md-4 col-lg-4">
+             <div class="box">
+                <div class="option_container">
+                   <div class="options">
+                      <a href="" class="option1">
+                      Add To Cart
+                      </a>
+                      <a href="" class="option2">
+                      Buy Now
+                      </a>
+                   </div>
+                </div>
+                <div class="img-box">
+                   <img src="{{ asset('assets/images/RIM, MAGWHEEL.jpg') }}" alt="RIM, MAGWHEEL">
+                </div>
+                <div class="detail-box">
+                   <h5>
+                    RIM, MAGWHEEL, RR (GOLD) ICON 110
+                   </h5>
+                   <h6>
+                    ₱4980
+                   </h6>
+                </div>
+             </div>
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-4">
+             <div class="box">
+                <div class="option_container">
+                   <div class="options">
+                      <a href="" class="option1">
+                      Add To Cart
+                      </a>
+                      <a href="" class="option2">
+                      Buy Now
+                      </a>
+                   </div>
+                </div>
+                <div class="img-box">
+                   <img src="{{ asset('assets/images/COD Motorcycle Shock for XRMWAVE 310mm One Pair.jpg') }}" alt="">
+                </div>
+                <div class="detail-box">
+                   <h5>
+                    COD Motorcycle Shock for XRM/WAVE 310mm One Pair
+                   </h5>
+                   <h6>
+                    ₱2510
+                   </h6>
+                </div>
+             </div>
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-4">
+             <div class="box">
+                <div class="option_container">
+                   <div class="options">
+                      <a href="" class="option1">
+                      Add To Cart
+                      </a>
+                      <a href="" class="option2">
+                      Buy Now
+                      </a>
+                   </div>
+                </div>
+                <div class="img-box">
+                   <img src="{{ asset('assets/images/PDD motorcycle.jpg') }}" alt="">
+                </div>
+                <div class="detail-box">
+                   <h5>
+                        PDD Motorcycle Brake Lever For XRM (RIGHT)
+                   </h5>
+                   <h6>
+                    ₱4980
+                   </h6>
+                </div>
+             </div>
+          </div>
+
+
+
+
+       </div>
+       <div class="btn-box">
+          <a href="">
+          View All products
+          </a>
+       </div>
+    </div>
+ </section>
+ <!-- end product section -->
+
 
 
 

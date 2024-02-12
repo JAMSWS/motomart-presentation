@@ -31,7 +31,7 @@ Route::get('/collections/{category_slug}', [App\Http\Controllers\Frontend\Fronte
 Route::get('/checkout', [App\Http\Controllers\Frontend\CheckoutController::class, 'index']);
 
 // Forum
-Route::get('/forum', [App\Http\Controllers\Frontend\ForumController::class,'index']);
+// Route::get('/forum', [App\Http\Controllers\Frontend\ForumController::class,'index']);
 
 //Shopping Cart
 Route::get('/shoppingcart', [App\Http\Controllers\Frontend\ShoppingCartController::class,'index']);
