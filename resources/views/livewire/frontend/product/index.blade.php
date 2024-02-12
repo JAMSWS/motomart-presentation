@@ -25,8 +25,8 @@
                            </a>
                         </h5>
                         <div>
-                            <span class="selling-price">{{ $productItem->selling_price }}</span>
-                            <span class="original-price">{{ $productItem->original_price }}</span>
+                            <span class="selling-price"> ₱ {{ $productItem->selling_price }}</span>
+                            <span class="original-price">₱ {{ $productItem->original_price }}</span>
                         </div>
 
                     </div>

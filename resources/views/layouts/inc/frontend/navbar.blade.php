@@ -41,7 +41,7 @@
                     <ul class="nav justify-content-end">
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{ url('/shoppingcart') }}">
                                 <i class="fa fa-shopping-cart"></i> Cart (0)
                             </a>
                         </li>
@@ -65,13 +65,7 @@
                         @endif
 
 
-
-
                     @else
-
-
-
-
 
 
 
@@ -133,18 +127,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/collections') }}">All Categories</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/mew-arrivals') }}">New Arrivals</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/') }}">Featured Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/') }}">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/') }}">Fashions</a>
-                    </li>
+
 
                 </ul>
             </div>
@@ -153,6 +136,11 @@
 
 
 </div>
+
+
+
+
+
 
 
 
