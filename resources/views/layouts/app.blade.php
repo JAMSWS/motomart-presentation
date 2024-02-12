@@ -38,7 +38,11 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet" />
 
+    {{-- motomart icon --}}
+    <link rel="icon"  src="{{ asset('assets/images/newlogomotomart.png') }}">
+
     <!-- plugins:css -->
+
    <link rel="stylesheet" href="{{ asset('admin/vendors/mdi/css/materialdesignicons.min.css')}}">
    <link rel="stylesheet" href="{{ asset('admin/vendors/base/vendor.bundle.base.css')}}">
 
@@ -169,14 +173,14 @@
 
             <!-- footer start -->
       <footer>
-        <div class="container d-flex justify-content-center align-items-center">
+        <div class="container d-flex justify-content-center">
            <div class="row">
               <div class="col-md-4">
                   <div class="full">
                      <div class="logo_footer">
                        <a href="#"><img width="210" src="{{ asset('assets/images/newlogomotomart.png') }}" alt="#" /></a>
                      </div>
-                     <div class="information_f">
+                     <div class="information_f ">
                        <p><strong>ADDRESS:</strong> Caloocan city</p>
                        <p><strong>Phone Number:</strong> 09612198618</p>
                        <p><strong>EMAIL:</strong> motomart@gmail.com</p>
