@@ -70,7 +70,8 @@
 
           <div class="card">
             <div class="card-body">
-              <button type="button" class="btn btn-danger btn-block btn-lg">Check Out</button>
+              {{-- <button type="button" href="{{ url('/checkout') }}" class="btn btn-danger btn-block btn-lg">Check Out</button> --}}
+              <a type="button" class="btn btn-danger" href="{{ url('/checkout') }}"> Check out </a>
             </div>
           </div>
 
