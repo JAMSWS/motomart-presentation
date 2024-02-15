@@ -38,7 +38,11 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet" />
 
+    {{-- motomart icon --}}
+    <link rel="icon"  src="{{ asset('assets/images/newlogomotomart.png') }}">
+
     <!-- plugins:css -->
+
    <link rel="stylesheet" href="{{ asset('admin/vendors/mdi/css/materialdesignicons.min.css')}}">
    <link rel="stylesheet" href="{{ asset('admin/vendors/base/vendor.bundle.base.css')}}">
 
@@ -73,7 +77,7 @@
 
         @include('layouts.inc.frontend.navbar')
 
-        
+
 
 
         {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -164,12 +168,44 @@
             </div>
         </nav> --}}
 
-
-
-        <main>
+    <main>
             @yield('content')
 
+            <!-- footer start -->
+      <footer>
+        <div class="container d-flex justify-content-center">
+           <div class="row">
+              <div class="col-md-4">
+                  <div class="full">
+                     <div class="logo_footer">
+                       <a href="#"><img width="210" src="{{ asset('assets/images/newlogomotomart.png') }}" alt="#" /></a>
+                     </div>
+                     <div class="information_f ">
+                       <p><strong>ADDRESS:</strong> Caloocan city</p>
+                       <p><strong>Phone Number:</strong> 09612198618</p>
+                       <p><strong>EMAIL:</strong> motomart@gmail.com</p>
+                     </div>
+                  </div>
 
+                  <div class="btn btn-box">
+                    <a href="{{ url('/forum') }}">
+                    Forum
+                    </a>
+                 </div>
+              </div>
+
+           </div>
+        </div>
+     </footer>
+     <!-- footer end -->
+
+     <div class="cpy_">
+        <p class="mx-auto">© 2024 All Rights Reserved By <a href="#">Motomart.com</a><br>
+
+
+
+        </p>
+     </div>
 
         </main>
     </div>
