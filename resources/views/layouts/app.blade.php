@@ -66,6 +66,10 @@
     <!-- Styles -->
     <link href="{{ asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+
     @livewireStyles
 
 </head>
@@ -250,7 +254,7 @@
                                 <div class="field">
                                    {{-- <input type="email" placeholder="Enter Your Mail" name="email" />
                                    <input type="submit" value="Subscribe" /> --}}
-                                   <a class="btn btn-danger" href="{{ url('sellercenter/dashboard') }}">Seller Center</a>
+                                   <a class="btn btn-danger"  wire:click="btnSellerCenter" href="{{ url('sellercenter/dashboard') }}">Seller Center</a>
                                 </div>
                              </fieldset>
                           </form>
@@ -340,6 +344,14 @@
 
     {{-- Login & register script --}}
     <script  src="{{ asset('assets/js-login/script.js') }}"></script>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script>
+        window.addEventListener('message', event => {
+        alertify.set('notifier','position', 'top-right');
+        alertify.notify(event.detail.text, event.detail.type);
+        });
+
+    </script>
 
     <!-- Scripts -->
     {{-- @vite(['public/assets/js/jquery-3.7.1.min.js']) --}}

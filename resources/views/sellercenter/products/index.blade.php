@@ -11,7 +11,7 @@
         <div class="card">
             <div class="card-header">
                 <h4>Products
-                    <a href="{{ url('sellercenter/products/create') }}" class="btn btn-primary text-white float-end">Add products</a>
+                    <a href="{{ url('sellercenter/products/create') }}" class="btn btn-danger text-white float-end">Add products</a>
                 </h4>
             </div>
             <div class="card-body">

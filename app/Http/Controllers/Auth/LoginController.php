@@ -35,7 +35,7 @@ class LoginController extends Controller
    protected function authenticated()
     {
         if(Auth::user()->role_as == '1'){
-            return redirect('admin/dashboard')->with('message', 'Welcome to Dashboard');
+            return redirect('/')->with('message', 'Welcome to Dashboard');
         }
         else {
             return redirect('/')->with('status', 'Logged In Successfully');
@@ -44,7 +44,7 @@ class LoginController extends Controller
 
         if(Auth::user()->seller == '1')
         {
-            return redirect('sellercenter/dashboard')->with('message', 'Welcome to Seller Center Dashboard');
+            return redirect('/')->with('message', 'Welcome to Seller Center Dashboard');
         }
         else{
             return redirect('/')->with('status', 'Logged In Successfully');

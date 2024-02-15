@@ -8,9 +8,12 @@ use Livewire\Component;
 class Index extends Component
 {
 
-    public $products, $category, $brandInputs = [];
+    public $products, $category, $brandInputs = [], $priceInput;
 
-    protected $queryString = ['brandInputs'];
+    protected $queryString = [
+        'brandInputs' => ['except' => '', 'as' => 'brand'],
+        'priceInput' => ['except' => '', 'as' => 'price'],
+    ];
 
 
     public function mount($category)
@@ -19,11 +22,23 @@ class Index extends Component
         $this->category = $category;
 
     }
+
+
+
     public function render()
     {
         $this->products = Product::where('category_id', $this->category->id)
                             ->when($this->brandInputs, function($q) {
                                 $q->whereIn('brand', $this->brandInputs);
+                            })
+                            ->when($this->priceInput, function($q) {
+
+                                $q->when($this->priceInput == 'High-to-Low', function($q2) {
+                                        $q2->orderBy('selling_price', 'DESC');
+                                    })
+                                    ->when($this->priceInput == 'Low-to-High', function($q2) {
+                                        $q2->orderBy('selling_price', 'ASC');
+                                    });
                             })
                             ->where('status', '0')
                             ->get();
@@ -32,5 +47,14 @@ class Index extends Component
             'products' => $this ->products,
             'category'=> $this->category
         ]);
+    }
+
+    public function applyFilter()
+    {
+        $this->products = Product::where('category_id', $this->category->id)
+            ->when($this->brandInputs, function ($q) {
+                $q->whereIn('brand', $this->brandInputs);
+            })
+            ->get();
     }
 }

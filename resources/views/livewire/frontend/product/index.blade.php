@@ -1,17 +1,38 @@
 <div>
     <div class="row">
         <div class="col-md-3">
+
+            @if ($category->brands)
+
+
             <div class="card">
                 <div class="card-header"><h4>Brands</h4></div>
                 <div class="card-body">
                     @foreach ($category->brands as $brandItem)
                     <label class="d-block">
-                        <input type="checkbox" wire:model="brandInputs" value="{{ $brandItem->name }}" /> {{ $brandItem->name }}
+                        <input wire:model="brandInputs" wire:click="applyFilter" type="checkbox" value="{{$brandItem->name}}" /> {{$brandItem->name}}
                     </label>
                     @endforeach
                 </div>
             </div>
+            @endif
+
+            <div class="card mt-3">
+                <div class="card-header"><h4>Price</h4></div>
+                <div class="card-body">
+
+                    <label class="d-block">
+                        <input wire:model="priceInput" name="priceSort" wire:click="applyFilter" type="radio" value="High-to-Low" /> High to Low
+                    </label>
+                    <label class="d-block">
+                        <input wire:model="priceInput" name="priceSort" wire:click="applyFilter" type="radio" value="Low-to-High" /> Low  to High
+                    </label>
+
+                </div>
+            </div>
         </div>
+
+
         <div class="col-md-9">
 
 
