@@ -29,7 +29,7 @@ class LoginController extends Controller
      */
    // protected $redirectTo = '/home';
 
-   
+
 
 
    protected function authenticated()
@@ -38,9 +38,21 @@ class LoginController extends Controller
             return redirect('admin/dashboard')->with('message', 'Welcome to Dashboard');
         }
         else {
-            return redirect('/home')->with('status', 'Logged In Successfully');
+            return redirect('/')->with('status', 'Logged In Successfully');
+        }
+
+
+        if(Auth::user()->seller == '1')
+        {
+            return redirect('sellercenter/dashboard')->with('message', 'Welcome to Seller Center Dashboard');
+        }
+        else{
+            return redirect('/')->with('status', 'Logged In Successfully');
         }
    }
+
+
+
     /**
      * Create a new controller instance.
      *
