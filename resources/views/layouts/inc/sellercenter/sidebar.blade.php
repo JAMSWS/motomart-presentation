@@ -9,12 +9,6 @@
             </a>
           </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="category">
-          <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-          <span class="menu-title">Category</span>
-        </a>
-      </li>
 
 
      <li class="nav-item">
@@ -25,39 +19,22 @@
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="{{ url('admin/products/create') }}">Add product</a></li>
-            <li class="nav-item"> <a class="nav-link" href="{{ url('admin/products') }}">View product</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ url('sellercenter/products/create') }}">Add product</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ url('sellercenter/products') }}">View product</a></li>
           </ul>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="brands">
-          <i class="mdi mdi-view-headline menu-icon"></i>
-          <span class="menu-title">Brands</span>
-        </a>
-      </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="{{ url('admin/colors') }}">
-          <i class="mdi mdi-view-headline menu-icon"></i>
-          <span class="menu-title">Colors</span>
-        </a>
-      </li>
 
 
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ url('sellercenter/reservedbuyer') }}">
           <i class="mdi mdi-chart-pie menu-icon"></i>
-          <span class="menu-title">History</span>
+          <span class="menu-title">Reserved buyer</span>
         </a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="{{ url('admin/sliders') }}">
-          <i class="mdi mdi-chart-pie menu-icon"></i>
-          <span class="menu-title">Home Slider</span>
-        </a>
-      </li>
+
       {{-- <li class="nav-item">
         <a class="nav-link" href="pages/tables/basic-table.html">
           <i class="mdi mdi-grid-large menu-icon"></i>

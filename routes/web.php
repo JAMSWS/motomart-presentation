@@ -57,8 +57,6 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function() {
 
     });
 
-
-
     // Category Routes
     Route::controller(App\Http\Controllers\Admin\CategoryController::class)->group(function () {
         Route::get('/category', 'index');
@@ -115,6 +113,22 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function() {
 Route::prefix('sellercenter')->middleware(['auth','isSeller'])->group(function() {
 
     Route::get('dashboard', [App\Http\Controllers\SellingCenter\DashboardController::class, 'index']);
+
+    //add product view product
+    Route::controller(App\Http\Controllers\SellingCenter\ProductController::class)->group(function () {
+        Route::get('/products', 'index');
+        Route::get('/products/create', 'create');
+
+
+    });
+
+    //Reserved buyer
+    Route::controller(App\Http\Controllers\SellingCenter\ReservedBuyerController::class)->group(function () {
+        Route::get('/reservedbuyer', 'index');
+
+
+    });
+
 
 });
 

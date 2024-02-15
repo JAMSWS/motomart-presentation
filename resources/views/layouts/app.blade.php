@@ -16,7 +16,7 @@
     <title> @yield('title') </title>
 
     <meta name="description" content="@yield('meta_description')" />
-    <meta name="keyword" content="meta_keyword" />
+    <meta name="keyword" content="@yield('meta_keyword')" />
     <meta name="author" content="Motomart" />
 
 
@@ -172,8 +172,8 @@
             @yield('content')
 
             <!-- footer start -->
-      <footer>
-        <div class="container d-flex justify-content-center">
+      {{-- <footer>
+        <div class="container">
            <div class="row">
               <div class="col-md-4">
                   <div class="full">
@@ -194,6 +194,71 @@
                  </div>
               </div>
 
+           </div>
+        </div>
+     </footer> --}}
+     <footer>
+        <div class="container">
+           <div class="row">
+              <div class="col-md-4">
+                  <div class="full">
+                     <div class="logo_footer">
+                       <a href="#"><img width="210" src="{{ asset('assets/images/newlogomotomart.png') }}" alt="#" /></a>
+                     </div>
+                     <div class="information_f">
+                       <p><strong>ADDRESS:</strong> Caloocan City</p>
+                       <p><strong>TELEPHONE:</strong> 09991234567</p>
+                       <p><strong>EMAIL:</strong> motomart@gmail.com</p>
+                     </div>
+                  </div>
+              </div>
+              <div class="col-md-8">
+                 <div class="row">
+                 <div class="col-md-7">
+                    <div class="row">
+                       <div class="col-md-6">
+                    <div class="widget_menu">
+                       <h3>Menu</h3>
+                       <ul>
+                          <li><a href="#">Home</a></li>
+                          <li><a href="#">About</a></li>
+                          <li><a href="#">Services</a></li>
+                          <li><a href="#">Contact</a></li>
+                       </ul>
+                    </div>
+                 </div>
+                 <div class="col-md-6">
+                    <div class="widget_menu">
+                       <h3>Account</h3>
+                       <ul>
+                          <li><a href="#">Account</a></li>
+                          <li><a href="#">Checkout</a></li>
+                       </ul>
+                    </div>
+                 </div>
+                    </div>
+                 </div>
+                 <div class="col-md-5">
+                    <div class="widget_menu">
+                       <h3>Become a Seller</h3>
+                       <div class="information_f">
+                         <p></p>
+                       </div>
+                       <div class="form_sub">
+                          <form>
+                             <fieldset>
+                                <div class="field">
+                                   {{-- <input type="email" placeholder="Enter Your Mail" name="email" />
+                                   <input type="submit" value="Subscribe" /> --}}
+                                   <a class="btn btn-danger" href="{{ url('sellercenter/dashboard') }}">Seller Center</a>
+                                </div>
+                             </fieldset>
+                          </form>
+                       </div>
+                    </div>
+                 </div>
+                 </div>
+              </div>
            </div>
         </div>
      </footer>

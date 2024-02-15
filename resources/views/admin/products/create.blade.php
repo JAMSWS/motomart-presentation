@@ -42,9 +42,9 @@
                         <button class="nav-link" id="image-tab" data-bs-toggle="tab" data-bs-target="#image-tab-pane" type="button" role="tab" aria-controls="image-tab-pane" aria-selected="false">Product Image</button>
                       </li>
 
-                      <li class="nav-item" role="presentation">
+                      {{-- <li class="nav-item" role="presentation">
                         <button class="nav-link" id="color-tab" data-bs-toggle="tab" data-bs-target="#color-tab-pane" type="button" role="tab" aria-controls="image-tab-pane" aria-selected="false">Product Color</button>
-                      </li>
+                      </li> --}}
 
 
                   </ul>

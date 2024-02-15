@@ -76,15 +76,7 @@
               </button>
             </form>
 
-            <div class="text-center text-muted delimiter">or use a social network</div>
-            <div class="d-flex justify-content-center social-buttons">
-                <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Google">
-                    <i class="fab fa-google"></i>
-                  </button>
-                  <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Facebook">
-                    <i class="fab fa-facebook"></i>
-                  </button>
-            </div>
+           
           </div>
         </div>
         </form>

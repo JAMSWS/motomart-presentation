@@ -48,7 +48,7 @@
                             </span>
                             @enderror
                         </div>
-                        <button type="submit" class="btn btn-block btn-round btn-danger">Login</button>
+                        <button type="submit" class="btn btn-block btn-round btn-danger">Sign In</button>
                     </form>
 
                     <div class="text-left mt-2"><a href="{{ url('/password/reset') }}" id="forgotPassword" class="text-info">Forgot Password</a></div>

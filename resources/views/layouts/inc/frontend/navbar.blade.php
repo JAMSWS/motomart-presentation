@@ -51,18 +51,18 @@
 
                         @if (Route::has('login'))
                             <li class="nav-item">
-                                <a class="nav-link"  data-bs-toggle="modal" data-bs-target="#loginModal">{{ __('Login') }}</a>
+                                <a class="nav-link"  data-bs-toggle="modal" data-bs-target="#loginModal">{{ __('Sign In') }}</a>
                             </li>
                         @endif
 
 
 
 
-                        @if (Route::has('register'))
+                        {{-- @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" id="registerButton" data-bs-toggle="modal" data-bs-target="#registermodal">{{ __('Register') }}</a>
+                                <a class="nav-link" id="registerButton" data-bs-toggle="modal" data-bs-target="#registermodal">{{ __('Sign Up') }}</a>
                             </li>
-                        @endif
+                        @endif --}}
 
 
                     @else
