@@ -31,13 +31,15 @@ Route::get('/collections/{category_slug}', [App\Http\Controllers\Frontend\Fronte
 Route::get('/checkout', [App\Http\Controllers\Frontend\CheckoutController::class, 'index']);
 
 // Forum
-Route::get('/forum', [App\Http\Controllers\Frontend\ForumController::class,'index']);
+// Route::get('/forum', [App\Http\Controllers\Frontend\ForumController::class,'index']);
 
 //Shopping Cart
 Route::get('/shoppingcart', [App\Http\Controllers\Frontend\ShoppingCartController::class,'index']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+//Admin route
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function() {
 
     Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index']);
@@ -94,11 +96,26 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function() {
     });
 
 
+});
+
+
+
+// Selling Center Routes
+// Route::middleware(['auth'])->group(function() {
+//     Route::prefix('sellercenter')->group(function() {
+//         Route::get('dashboard', [App\Http\Controllers\SellingCenter\DashboardController::class, 'index']);
+//         // Add more routes for managing products, categories, etc.
 
 
 
 
+//     });
+// });
 
+Route::prefix('sellercenter')->middleware(['auth','isSeller'])->group(function() {
 
+    Route::get('dashboard', [App\Http\Controllers\SellingCenter\DashboardController::class, 'index']);
 
 });
+
+
