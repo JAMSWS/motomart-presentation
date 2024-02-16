@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Frontend\Product;
 
+use App\Models\Cart;
 use Livewire\Component;
 use App\Models\Wishlist;
 use Illuminate\Support\Facades\Auth;
@@ -62,6 +63,54 @@ class View extends Component
             $this->quantityCount--;
         }
 
+    }
+
+    public function addToCart(int $productId)
+    {
+        if(Auth::check())
+        {
+            // dd($productId);
+            if($this->product->where('id',$productId )->where('status', '0')->exists())
+            {
+                if(Cart::where('user_id', Auth()->user()->id)->where('product_id',$productId )->exists())
+                {
+                    $this->dispatch('message', text: 'Product Already Added', type: 'success', status: 200);
+                }
+                else
+                {
+                    if($this->product->quantity > 0 )
+                {
+                    if($this->product->quantity > $this->quantityCount)
+                    {
+                        //insert product to cart
+                        Cart::create([
+                            'user_id' => auth()->user()->id,
+                            'product_id' => $productId,
+                            'quantity' => $this->quantityCount
+                        ]);
+                        $this->dispatch('message', text: 'Product Added to Cart', type: 'success', status: 200);
+                    }
+                    else
+                    {
+                        $this->dispatch('message', text: 'Only '.$this->product->quantity.' Quantity Available', type: 'warning', status: 404);
+                    }
+                }
+                else
+                {
+                    $this->dispatch('message', text: 'Out of Stock', type: 'warning', status: 404);
+                }
+                }
+
+            }
+            else
+            {
+                $this->dispatch('message', text: 'Product Does not exists', type: 'warning', status: 404);
+            }
+        }
+        else
+        {
+            $this->dispatch('message', text: 'Please Login To add to cart', type: 'info', status: 401);
+        }
     }
     public function mount($category, $product)
     {
