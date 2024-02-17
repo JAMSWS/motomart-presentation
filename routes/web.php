@@ -31,17 +31,21 @@ Route::get('/collections/{category_slug}/{product_slug}', [App\Http\Controllers\
 //wishlist
 Route::middleware(['auth'])->group(function () {
     Route::get('wishlist',[App\Http\Controllers\Frontend\WishlistController::class, 'index' ]);
+    Route::get('cart',[App\Http\Controllers\Frontend\CartController::class, 'index' ]);
+    Route::get('checkout',[App\Http\Controllers\Frontend\CheckoutController::class, 'index' ]);
+
+
 });
 
 
 // Check out
-Route::get('/checkout', [App\Http\Controllers\Frontend\CheckoutController::class, 'index']);
+// Route::get('/checkout', [App\Http\Controllers\Frontend\CheckoutController::class, 'index']);
 
 // Forum
 // Route::get('/forum', [App\Http\Controllers\Frontend\ForumController::class,'index']);
 
 //Shopping Cart
-Route::get('/shoppingcart', [App\Http\Controllers\Frontend\ShoppingCartController::class,'index']);
+// Route::get('/shoppingcart', [App\Http\Controllers\Frontend\ShoppingCartController::class,'index']);
 
 
 
@@ -134,11 +138,12 @@ Route::prefix('sellercenter')->middleware(['auth','isSeller'])->group(function()
     //Reserved buyer
     Route::controller(App\Http\Controllers\SellingCenter\ReservedBuyerController::class)->group(function () {
         Route::get('/reservedbuyer', 'index');
-
-
     });
 
-
+    // sellercenter/orders
+    Route::controller(App\Http\Controllers\SellingCenter\OrderController::class)->group(function () {
+        Route::get('/orders', 'index');
+    });
 });
 
 

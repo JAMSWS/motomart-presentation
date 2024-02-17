@@ -28,9 +28,9 @@
 
 
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('sellercenter/reservedbuyer') }}">
+        <a class="nav-link" href="{{ url('sellercenter/orders') }}">
           <i class="mdi mdi-chart-pie menu-icon"></i>
-          <span class="menu-title">Reserved buyer</span>
+          <span class="menu-title">Orders</span>
         </a>
       </li>
 

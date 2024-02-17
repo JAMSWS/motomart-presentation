@@ -41,8 +41,8 @@
                     <ul class="nav justify-content-end">
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/shoppingcart') }}">
-                                <i class="fa fa-shopping-cart"></i> Cart (0)
+                            <a class="nav-link" href="{{ url('/cart') }}">
+                                <i class="fa fa-shopping-cart"></i> Cart (<livewire:frontend.cart.cart-count />)
                             </a>
                         </li>
 
@@ -67,11 +67,11 @@
 
 
 
-                        {{-- @if (Route::has('register'))
+                        @if (Route::has('register'))
                             <li class="nav-item">
                                 <a class="nav-link" id="registerButton" data-bs-toggle="modal" data-bs-target="#registermodal">{{ __('Sign Up') }}</a>
                             </li>
-                        @endif --}}
+                        @endif
 
 
                     @else
