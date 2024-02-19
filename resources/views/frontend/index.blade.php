@@ -165,31 +165,39 @@
                 </div>
              </div>
           </div>
+
           <div class="col-sm-6 col-md-4 col-lg-4">
-             <div class="box">
-                <div class="option_container">
-                   <div class="options">
-                      <a href="" class="option1">
-                      Add To Cart
-                      </a>
-                      <a href="" class="option2">
-                      Buy Now
-                      </a>
-                   </div>
-                </div>
-                <div class="img-box">
-                   <img src="{{ asset('assets/images/COD Motorcycle Shock for XRMWAVE 310mm One Pair.jpg') }}" alt="">
-                </div>
-                <div class="detail-box">
-                   <h5>
-                    COD Motorcycle Shock for XRM/WAVE 310mm One Pair
-                   </h5>
-                   <h6>
-                    ₱2510
-                   </h6>
-                </div>
-             </div>
-          </div>
+            <div class="box">
+               <div class="option_container">
+                  <div class="options">
+                     <a href="" class="option1">
+                     Add To Cart
+                     </a>
+                     <a href="" class="option2">
+                     Buy Now
+                     </a>
+                  </div>
+               </div>
+               <div class="img-box">
+                  <img src="{{ asset('assets/images/PDD motorcycle.jpg') }}" alt="">
+               </div>
+               <div class="detail-box">
+                  <h5>
+                       PDD Motorcycle Brake Lever For XRM (RIGHT)
+                  </h5>
+                  <h6>
+                   ₱4980
+                  </h6>
+               </div>
+            </div>
+         </div>
+
+         
+
+
+
+
+
           <div class="col-sm-6 col-md-4 col-lg-4">
              <div class="box">
                 <div class="option_container">
@@ -215,6 +223,7 @@
                 </div>
              </div>
           </div>
+
 
 
 

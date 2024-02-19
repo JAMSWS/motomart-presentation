@@ -6,7 +6,7 @@
 
 
 
-    <div class="py-3 py-md-5">
+    {{-- <div class="py-3 py-md-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -90,6 +90,179 @@
                 </div>
             </div>
         </div>
+    </div> --}}
+
+    <div class="card-body" style="background-color: lightgray;">
+        <form>
+          <div class="row">
+            <div class="col-sm-6">
+              <!-- text input -->
+              <div class="form-group">
+                <label>Name:</label>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <!-- text input -->
+              <div class="form-group">
+                <label>STATUS:</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <label>Address:</label>
+                  </div>
+                </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <label>Product Name:</label>
+                  </div>
+                </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <label>Quantity:</label>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <label>Reference No.:</label>
+                  </div>
+                </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <label>Mode of Payment:</label>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <label>Proof of Receipt:</label>
+                  </div>
+                </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <label>Schedule Pick up:</label>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <div class="p-0 row">
+                      <div class="col-sm-3">
+                        <a href="https://via.placeholder.com/1200/000000.png?text=IMAGE" data-toggle="lightbox" data-title="sample IMAGE - black" data-gallery="gallery">
+                          <img src="https://via.placeholder.com/300/000000?text=IMAGE" class="img-fluid mb-2" alt="black sample"/>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+          <button type="submit" class="btn btn-success rounded-pill">Confirm</button>
+
+        </form>
     </div>
+
+    <hr>
+
+    <div class="card-body" style="background-color: lightgray;">
+        <form>
+          <div class="row">
+            <div class="col-sm-6">
+              <!-- text input -->
+              <div class="form-group">
+                <label>Name:</label>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <!-- text input -->
+              <div class="form-group">
+                <label>STATUS:</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <label>Address:</label>
+                  </div>
+                </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <label>Product Name:</label>
+                  </div>
+                </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <label>Quantity:</label>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <label>Reference No.:</label>
+                  </div>
+                </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <label>Mode of Payment:</label>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <label>Proof of Receipt:</label>
+                  </div>
+                </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <label>Schedule Pick up:</label>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <div class="p-0 row">
+                      <div class="col-sm-3">
+                        <a href="https://via.placeholder.com/1200/000000.png?text=IMAGE" data-toggle="lightbox" data-title="sample IMAGE - black" data-gallery="gallery">
+                          <img src="https://via.placeholder.com/300/000000?text=IMAGE" class="img-fluid mb-2" alt="black sample"/>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+          <button type="submit" class="btn btn-success rounded-pill">Confirm</button>
+
+        </form>
+    </div>
+
 
 @endsection

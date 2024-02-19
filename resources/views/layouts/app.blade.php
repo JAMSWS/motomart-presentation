@@ -254,7 +254,7 @@
                                 <div class="field">
                                    {{-- <input type="email" placeholder="Enter Your Mail" name="email" />
                                    <input type="submit" value="Subscribe" /> --}}
-                                   <a class="btn btn-danger"  wire:click="btnSellerCenter" href="{{ url('sellercenter/dashboard') }}">Seller Center</a>
+                                   <a class="btn btn-danger"  wire:click="btnSellerCenter" href="{{ url('sellercenter/products') }}">Seller Center</a>
                                 </div>
                              </fieldset>
                           </form>
