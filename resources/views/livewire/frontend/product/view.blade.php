@@ -62,6 +62,13 @@
 
                             </button>
                         </div>
+
+                        <div class="mt-3">
+
+                            <h5>Shop Name</h5>
+                            <p>{{ $product->user->name }}</p>
+
+                        </div>
                         <div class="mt-3">
                             <h5 class="mb-0">Small Description</h5>
                             <p>

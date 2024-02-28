@@ -70,6 +70,10 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
 
+    {{-- owl css --}}
+    <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/owl.theme.default.min.css') }}">
+
     @livewireStyles
 
 </head>
@@ -173,34 +177,15 @@
         </nav> --}}
 
     <main>
+
+
             @yield('content')
 
+
+
+
             <!-- footer start -->
-      {{-- <footer>
-        <div class="container">
-           <div class="row">
-              <div class="col-md-4">
-                  <div class="full">
-                     <div class="logo_footer">
-                       <a href="#"><img width="210" src="{{ asset('assets/images/newlogomotomart.png') }}" alt="#" /></a>
-                     </div>
-                     <div class="information_f ">
-                       <p><strong>ADDRESS:</strong> Caloocan city</p>
-                       <p><strong>Phone Number:</strong> 09612198618</p>
-                       <p><strong>EMAIL:</strong> motomart@gmail.com</p>
-                     </div>
-                  </div>
 
-                  <div class="btn btn-box">
-                    <a href="{{ url('/forum') }}">
-                    Forum
-                    </a>
-                 </div>
-              </div>
-
-           </div>
-        </div>
-     </footer> --}}
      <footer>
         <div class="container">
            <div class="row">
@@ -275,13 +260,13 @@
 
         </p>
      </div>
-
         </main>
     </div>
 
 
     <!-- Scripts -->
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 
 
@@ -342,6 +327,7 @@
 </script>
 
 
+
     {{-- Login & register script --}}
     <script  src="{{ asset('assets/js-login/script.js') }}"></script>
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
@@ -359,8 +345,9 @@
     @vite(['public/assets/js/bootstrap.js'])
     @vite(['public/assets/js/custom.js'])
 
+    @yield('script')
     @livewireStyles
-
+    @stack('scripts')
 
 
 

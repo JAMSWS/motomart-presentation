@@ -132,14 +132,15 @@
 </section>
 
 <!-- product section -->
-<section class="product_section layout_padding" style="background-color: #eee;" >
-    <div class="container">
+
+    {{-- <div class="container">
        <div class="heading_container heading_center">
           <h2>
              Featured <span>products</span>
           </h2>
        </div>
        <div class="row">
+
           <div class="col-sm-6 col-md-4 col-lg-4">
              <div class="box">
                 <div class="option_container">
@@ -157,7 +158,7 @@
                 </div>
                 <div class="detail-box">
                    <h5>
-                    RIM, MAGWHEEL, RR (GOLD) ICON 110
+
                    </h5>
                    <h6>
                     ₱4980
@@ -192,11 +193,6 @@
             </div>
          </div>
 
-         
-
-
-
-
 
           <div class="col-sm-6 col-md-4 col-lg-4">
              <div class="box">
@@ -223,20 +219,79 @@
                 </div>
              </div>
           </div>
-
-
-
-
-
        </div>
        <div class="btn-box">
           <a href="">
           View All products
           </a>
        </div>
+    </div> --}}
+
+
+
+    <div class="py-5 bg-white">
+        <div class="container">
+            <div class="row">
+
+            <div class="heading_container heading_center mb-5">
+                <h2>
+                   Featured <span>products</span>
+                </h2>
+             </div>
+
+                @if ($trendingProduct)
+                <div class="col-md-12">
+                    <div class="owl-carousel owl-theme trending-product">
+                        @foreach ($trendingProduct as $productItem)
+                            <div class="item" style="width:450px">
+                                <div class="product-card">
+                                    <div class="product-card-img">
+                                            <label class="stock bg-success">New</label>
+                                        @if ($productItem->productImages->count() > 0)
+                                        <a href="{{ url('/collections/'.$productItem->category->slug.'/'.$productItem->slug) }}">
+                                            <img src="{{ asset($productItem->productImages[0]->image) }}" alt="{{ $productItem->name }}">
+                                        </a>
+                                        @endif
+
+                                    </div>
+                                    <div class="product-card-body">
+                                        <p class="product-brand">{{ $productItem->brand }}</p>
+                                        <h5 class="product-name">
+                                        <a href="{{ url('/collections/'.$productItem->category->slug.'/'.$productItem->slug) }}">
+                                                {{$productItem->name}}
+                                        </a>
+                                        </h5>
+                                        <div>
+                                            <span class="selling-price"> ₱ {{ $productItem->selling_price }}</span>
+                                            <span class="original-price">₱ {{ $productItem->original_price }}</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                @else
+                <div class="col-md-12">
+                    <div class="p-2">
+                        <h4>No Products Available</h4>
+                    </div>
+                </div>
+                @endif
+            </div>
+        </div>
     </div>
+
+
+
+
+
  </section>
  <!-- end product section -->
+
+
+
 
 
 
@@ -251,6 +306,31 @@
 <script src="{{ asset('assets/js/main.js') }}"></script>
 
 
+
+
+@endsection
+
+@section('script')
+
+<script>
+        $('.trending-product').owlCarousel({
+            loop:true,
+            margin:10,
+            nav:true,
+            autoWidth:true,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:3
+                },
+                1000:{
+                    items:4
+                }
+            }
+        })
+</script>
 
 
 @endsection

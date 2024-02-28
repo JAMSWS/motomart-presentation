@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin; //kailangan palita to sellercenter
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\ProductFormRequest;
 use App\Models\Brand;
-use App\Models\Category;
-use App\Models\Product;
-use App\Models\ProductImage;
-use Illuminate\Support\Facades\File;
-use illuminate\Support\Str;
-use Illuminate\Http\Request;
 use App\Models\Color;
+use App\Models\Product;
+use App\Models\Category;
+use illuminate\Support\Str;
+use App\Models\ProductImage;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use App\Http\Requests\ProductFormRequest;
 
 
 
@@ -20,7 +21,8 @@ class ProductController extends Controller
     public function index()
     {
 
-        $products = Product::all();
+        $products = Auth::user()->products; // Retrieve only the products owned by the authenticated user
+        $products = Product::with('user')->get();
         return view('admin.products.index', compact('products'));
     }
 
@@ -34,27 +36,43 @@ class ProductController extends Controller
 
     public function store(ProductFormRequest $request)
     {
+
+        // $product = new Product();
+        // $product->user_id = auth()->id();
+        // $validatedData = $request->validated();
+        // $category = Category::findOrFail($validatedData['category_id']);
+
+        // $product = $category->products()->create([
+        //     'category_id' => $validatedData['category_id'],
+        //     'name' => $validatedData['name'],
+        //     'slug' => Str::slug($validatedData['slug']),
+        //     'brand' => $validatedData['brand'],
+        //     'small_description' => $validatedData['small_description'],
+        //     'description' => $validatedData['description'],
+        //     'original_price' => $validatedData['original_price'],
+        //     'selling_price' => $validatedData['selling_price'],
+        //     'quantity' => $validatedData['quantity'],
+        //     'trending' => $request->trending == true ? '1':'0',
+        //     'status' => $request->status == true ? '1':'0',
+        //     'meta_title' => $validatedData['meta_title'],
+        //     'meta_keyword' => $validatedData['meta_keyword'],
+        //     'meta_description' => $validatedData['meta_description'],
+
+
+
+
+        // ]);
+
         $validatedData = $request->validated();
 
-        $category = Category::findOrFail($validatedData['category_id']);
+        $product = new Product();
+        $product->user_id = auth()->id();
+        $product->fill($validatedData); // Fill other fields from the validated data
+        $product->slug = Str::slug($validatedData['name']); // Generate slug
+        $product->trending = $request->has('trending') ? '1' : '0'; // Handle checkbox values
+        $product->status = $request->has('status') ? '1' : '0';
 
-        $product = $category->products()->create([
-            'category_id' => $validatedData['category_id'],
-            'name' => $validatedData['name'],
-            'slug' => Str::slug($validatedData['slug']),
-            'brand' => $validatedData['brand'],
-            'small_description' => $validatedData['small_description'],
-            'description' => $validatedData['description'],
-            'original_price' => $validatedData['original_price'],
-            'selling_price' => $validatedData['selling_price'],
-            'quantity' => $validatedData['quantity'],
-            'trending' => $request->trending == true ? '1':'0',
-            'status' => $request->status == true ? '1':'0',
-            'meta_title' => $validatedData['meta_title'],
-            'meta_keyword' => $validatedData['meta_keyword'],
-            'meta_description' => $validatedData['meta_description'],
-
-        ]);
+        $product->save();
 
         if($request->hasFile('image'))
         {
@@ -76,10 +94,22 @@ class ProductController extends Controller
 
 
         return redirect('/admin/products')->with('message', 'Product Added Successfully');
+
+
+
     }
 
     public function edit(int $product_id)
     {
+        $product = Product::findOrFail($product_id);
+
+        // Check if the authenticated user is the owner of the product
+        if ($product->user_id != Auth::id()) {
+            // Unauthorized, handle appropriately (e.g., redirect back with an error)
+            return redirect()->back()->with('error', 'You are not authorized to edit this product.');
+        }
+
+
         $categories = Category::all();
         $brands = Brand::all();
         $product = Product::findOrFail($product_id);

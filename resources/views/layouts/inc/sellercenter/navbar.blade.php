@@ -120,7 +120,7 @@
         </li> --}}
         <li class="nav-item nav-profile dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
-            <img src="#" alt="profile"/>
+            {{-- <img src="#" alt="profile"/> --}}
             <span class="nav-profile-name">{{ Auth::user()->name }}</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">

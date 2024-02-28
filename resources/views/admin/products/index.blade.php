@@ -19,6 +19,7 @@
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Seller Name</th>
                             <th>Category</th>
                             <th>Product</th>
                             <th>Price</th>
@@ -31,6 +32,7 @@
                         @forelse ($products as $product)
                         <tr>
                             <td>{{ $product->id }}</td>
+                            <td>{{ $product->user->name }}</td>
                             <td> @if ($product->category)
                                 {{ $product->category->name }}
                                 @else
