@@ -20,7 +20,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Auth::user()->products; // Retrieve only the products owned by the authenticated user
-       
+
         return view('sellercenter.products.index', compact('products'));
     }
 

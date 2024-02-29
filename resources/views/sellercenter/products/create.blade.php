@@ -315,15 +315,15 @@
                                         <input type="text" name="quantity" class="form-control">
                                     </div>
 
-                                    <div class="mb-3">
+                                    <div class="mb-3"  style="display: none;"   >
                                         <label>Trending</label>
-                                        <input type="checkbox" name="trending" >
+                                        <input type="checkbox" name="trending" checked>
                                     </div>
 
-                                    <div class="mb-3">
+                                    {{-- <div class="mb-3">
                                         <label>Status</label>
                                         <input type="checkbox" name="status" >
-                                    </div>
+                                    </div> --}}
 
                                 </div>
                             </div>

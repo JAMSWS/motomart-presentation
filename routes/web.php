@@ -137,8 +137,6 @@ Route::prefix('sellercenter')->middleware(['auth','isSeller'])->group(function()
         Route::get('products/{product_id}/delete', 'destroy');
         Route::get('product-image/{product_image_id}/delete','destroyImage');
 
-
-
     });
 
     //Reserved buyer
