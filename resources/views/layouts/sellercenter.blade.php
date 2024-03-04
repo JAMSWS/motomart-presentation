@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Motomart') }}</title>
+    <title>{{ config('title', 'Seller Center | Motomart ' ) }}</title>
 
    <!-- plugins:css -->
    <link rel="stylesheet" href="{{ asset('sellercenter/vendors/mdi/css/materialdesignicons.min.css')}}">

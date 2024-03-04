@@ -26,7 +26,7 @@ Route::get('/',[App\Http\Controllers\Frontend\FrontendController::class, 'index'
 Route::get('/collections', [App\Http\Controllers\Frontend\FrontendController::class, 'categories']);
 // Route::get('/collections/{category_slug}', [App\Http\Controllers\Frontend\FrontendController::class, 'products']);
 Route::get('/collections/{category_slug}', [App\Http\Controllers\Frontend\FrontendController::class, 'products']);
-Route::get('/collections/{category_slug}/{product_slug}', [App\Http\Controllers\Frontend\FrontendController::class, 'productsView']);
+Route::get('/collections/{category_slug}/{product_name}', [App\Http\Controllers\Frontend\FrontendController::class, 'productsView']);
 
 //wishlist
 Route::middleware(['auth'])->group(function () {
@@ -36,8 +36,6 @@ Route::middleware(['auth'])->group(function () {
 
 
 });
-
-
 // Check out
 // Route::get('/checkout', [App\Http\Controllers\Frontend\CheckoutController::class, 'index']);
 
@@ -47,10 +45,7 @@ Route::middleware(['auth'])->group(function () {
 //Shopping Cart
 // Route::get('/shoppingcart', [App\Http\Controllers\Frontend\ShoppingCartController::class,'index']);
 
-
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 
 //Admin route
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function() {
@@ -108,7 +103,6 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function() {
 
 
 });
-
 
 
 // Selling Center Routes

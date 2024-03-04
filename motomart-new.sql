@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2024 at 11:24 AM
+-- Generation Time: Mar 04, 2024 at 01:04 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.3.2
 
@@ -42,7 +42,9 @@ CREATE TABLE `brands` (
 --
 
 INSERT INTO `brands` (`id`, `name`, `slug`, `status`, `created_at`, `updated_at`, `category_id`) VALUES
-(1, 'motolite', 'motolite', 0, '2024-02-29 04:20:10', '2024-02-29 04:20:10', 2);
+(2, 'RUSI', 'rusi', 0, '2024-03-04 03:43:10', '2024-03-04 03:43:10', 2),
+(3, 'Zeneos', 'zeneos', 0, '2024-03-04 04:55:25', '2024-03-04 04:55:25', 2),
+(4, 'Michelin ', 'michelin', 0, '2024-03-04 04:57:35', '2024-03-04 04:57:35', 2);
 
 -- --------------------------------------------------------
 
@@ -65,7 +67,9 @@ CREATE TABLE `carts` (
 
 INSERT INTO `carts` (`id`, `user_id`, `product_id`, `quantity`, `created_at`, `updated_at`) VALUES
 (1, 1, 4, 4, '2024-02-29 05:44:16', '2024-02-29 05:44:33'),
-(2, 1, 1, 1, '2024-02-29 05:50:25', '2024-02-29 05:50:25');
+(2, 1, 1, 1, '2024-02-29 05:50:25', '2024-02-29 05:50:25'),
+(3, 1, 5, 2, '2024-03-04 04:00:17', '2024-03-04 04:00:23'),
+(4, 1, 13, 1, '2024-03-04 04:47:39', '2024-03-04 04:47:39');
 
 -- --------------------------------------------------------
 
@@ -362,10 +366,8 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category_id`, `name`, `slug`, `brand`, `small_description`, `description`, `original_price`, `selling_price`, `quantity`, `trending`, `status`, `meta_title`, `meta_keyword`, `meta_description`, `created_at`, `updated_at`, `user_id`) VALUES
-(1, 1, 'Engine ito', 'engine-ito', 'motolite', 'Engine ito', 'Engine ito', 9500, 9500, 1500, 0, 0, 'Engine ito', 'Engine ito', 'Engine ito', '2024-02-29 04:20:52', '2024-02-29 05:52:03', 1),
-(2, 3, 'Engine ito', 'engine-ito', 'motolite', 'Engine ito', 'Engine itoa', 9500, 9500, 1500, 0, 0, 'Engine ito', 'Engine ito', 'Engine ito', '2024-02-29 04:22:35', '2024-02-29 04:22:35', 1),
-(3, 5, 'Engine ito', 'engine-ito', 'motolite', 'Engine ito', 'Engine itoa', 9500, 9500, 1500, 0, 0, 'Engine ito', 'Engine ito', 'Engine ito', '2024-02-29 04:25:04', '2024-02-29 04:25:04', 1),
-(4, 2, 'Wheel and Tire', 'wheel-and-tire', 'motolite', 'style=\"display: none;\"', 'style=\"display: none;\"', 223, 32323, 2500, 1, 0, 'style=\"display: none;\"', 'style=\"display: none;\"', 'style=\"display: none;\"', '2024-02-29 04:45:34', '2024-02-29 04:45:34', 1);
+(14, 2, 'Zeneos ZN62 Motorcycle Tire Gulong 14 Rim 17 Rim (Tubeless)', 'zeneos-zn62-motorcycle-tire-gulong-14-rim-17-rim-tubeless', 'Zeneos', NULL, 'MAXIMUM OF 3pcs PER ORDER!!!!\r\nBrand: Zeneos\r\nProduct Name: Motorcycle Tire Gulong\r\n\r\nwelcome to order our store, Ailiba Motoparts!!\r\nWe ensure that all products are inspected before packing and shipping.\r\n*We do not have control over delivery once the courier pick up the order\r\n*Delivery of an order may vary depending on courier led time.\r\n*Only the courier is responsible during delivery period.\r\n*Please check your order right away once you receive our package.\r\n*If there are issue.please feel free to sent us a message..', 4200, 3900, 10, 1, 0, NULL, NULL, NULL, '2024-03-04 04:56:42', '2024-03-04 04:56:42', 1),
+(15, 2, 'Michelin tire pilot street/pilot street2 tubeless with free sealant and pito 100% original authentic', 'michelin-tire-pilot-streetpilot-street2-tubeless-with-free-sealant-and-pito-100-original-authentic', 'Michelin', NULL, '100% original authentic with free  sealant and pito \r\n\r\nwelcome to order our store,YYDS\r\n\r\nWe ensure that all products are inspected before packing and shipping.\r\n*We do not have control over delivery once the courier pick up the order\r\n*Delivery of an order may vary depending on courier led time.\r\n*Only the courier is responsible during delivery period.\r\n*Please check your order right away once you receive our package.\r\n*If there are issue.please feel free to sent us a message..', 3200, 2799, 10, 1, 0, NULL, NULL, NULL, '2024-03-04 05:02:41', '2024-03-04 05:02:41', 1);
 
 -- --------------------------------------------------------
 
@@ -401,13 +403,8 @@ CREATE TABLE `product_images` (
 --
 
 INSERT INTO `product_images` (`id`, `product_id`, `image`, `created_at`, `updated_at`) VALUES
-(1, 1, 'uploads/products//17092092521.jpg', '2024-02-29 04:20:52', '2024-02-29 04:20:52'),
-(2, 2, 'uploads/products//17092093551.jpg', '2024-02-29 04:22:35', '2024-02-29 04:22:35'),
-(3, 3, 'uploads/products//17092095041.jpg', '2024-02-29 04:25:04', '2024-02-29 04:25:04'),
-(4, 4, 'uploads/products//17092107341.jpg', '2024-02-29 04:45:34', '2024-02-29 04:45:34'),
-(5, 1, 'uploads/products/17092147231.png', '2024-02-29 05:52:03', '2024-02-29 05:52:03'),
-(6, 1, 'uploads/products/17092147232.jpg', '2024-02-29 05:52:03', '2024-02-29 05:52:03'),
-(7, 1, 'uploads/products/17092147233.png', '2024-02-29 05:52:03', '2024-02-29 05:52:03');
+(17, 14, 'uploads/products//17095570021.jpg', '2024-03-04 04:56:42', '2024-03-04 04:56:42'),
+(18, 15, 'uploads/products//17095573611.jpg', '2024-03-04 05:02:41', '2024-03-04 05:02:41');
 
 -- --------------------------------------------------------
 
@@ -424,6 +421,15 @@ CREATE TABLE `slider` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `slider`
+--
+
+INSERT INTO `slider` (`id`, `title`, `description`, `image`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Motomart', 'A motorcycle ride is a symphony of courage, freedom, and the pursuit of endless possibilities.', 'uploads/slider/1709551901.jpg', 0, '2024-03-04 03:31:41', '2024-03-04 03:31:41'),
+(2, 'Motomart', 'If you want to be happy for a lifetime, ride a motorcycle.', 'uploads/slider/1709551933.png', 0, '2024-03-04 03:32:13', '2024-03-04 03:32:13'),
+(3, 'Motomart', 'Happiness is a Motorcycle, a Full Tank of Gas and Twisty Roads.', 'uploads/slider/1709551952.jpg', 0, '2024-03-04 03:32:32', '2024-03-04 03:32:32');
 
 -- --------------------------------------------------------
 
@@ -470,7 +476,9 @@ CREATE TABLE `wishlists` (
 --
 
 INSERT INTO `wishlists` (`id`, `user_id`, `product_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 4, '2024-02-29 05:44:19', '2024-02-29 05:44:19');
+(1, 1, 4, '2024-02-29 05:44:19', '2024-02-29 05:44:19'),
+(2, 1, 5, '2024-03-04 04:00:02', '2024-03-04 04:00:02'),
+(3, 1, 13, '2024-03-04 04:47:40', '2024-03-04 04:47:40');
 
 --
 -- Indexes for dumped tables
@@ -610,13 +618,13 @@ ALTER TABLE `wishlists`
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -676,7 +684,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `product_colors`
@@ -688,13 +696,13 @@ ALTER TABLE `product_colors`
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `slider`
 --
 ALTER TABLE `slider`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -706,7 +714,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `wishlists`
 --
 ALTER TABLE `wishlists`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables

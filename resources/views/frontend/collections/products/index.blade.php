@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-{{ $category->meta_title }}
+{{ $category->name }}
 @endsection
 
 @section('meta_keyword')
@@ -22,7 +22,7 @@
             <div class="col-md-12">
                 <h4 class="mb-4">Our Products</h4>
             </div>
-            
+
             <livewire:frontend.product.index :category="$category" />
         </div>
     </div>

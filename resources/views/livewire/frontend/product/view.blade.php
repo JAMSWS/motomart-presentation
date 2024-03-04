@@ -69,12 +69,14 @@
                             <p>{{ $product->user->name }}</p>
 
                         </div>
-                        <div class="mt-3">
+
+                        {{-- Small desc --}}
+                        {{-- <div class="mt-3">
                             <h5 class="mb-0">Small Description</h5>
                             <p>
                                 {!! $product->small_description !!}
                             </p>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
