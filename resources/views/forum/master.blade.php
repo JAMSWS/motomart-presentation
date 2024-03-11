@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +45,7 @@
 
         <div class="container mx-auto px-4 md:flex md:items-center md:gap-4">
             <div class="flex justify-between items-center">
-                <a class="text-lg" href="{{ url(config('forum.web.router.prefix')) }}">Laravel Forum</a>
+                <a class="text-lg" href="{{ url(config('forum.web.router.prefix')) }}"><img src="{{asset('assets/images/newlogomotomart.png')}}" alt="Logo" width="150" height="25"></a>
                 <button class="navbar-toggler block md:hidden border rounded-md px-2 py-1" type="button" :class="{ collapsed: isCollapsed }" @click="isCollapsed = ! isCollapsed">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="navbar-toggler-icon w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -54,8 +55,7 @@
             <div class="grow justify-between navbar-collapse" :class="{ 'flex flex-col': !isCollapsed, 'hidden md:flex': isCollapsed }">
                 <ul class="flex flex-col md:flex-row gap-3 mb-4 md:mb-0">
                     <li>
-                        <a class="text-gray-500" href="{{ url(config('forum.web.router.prefix')) }}">{{ trans('forum::general.index') }}</a>
-
+                        <a class="text-black-500" href="{{ url(config('forum.web.router.prefix')) }}">Home</a>
                     </li>
                     <li>
                         <a class="text-gray-500" href="{{ route('forum.recent') }}">{{ trans('forum::threads.recent') }}</a>
@@ -92,7 +92,7 @@
                         </li>
                     @else
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/login') }}">Log in</a>
+                            <a class="nav-link" href="{{ url('/') }}">Log in</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/register') }}">Register</a>
@@ -109,6 +109,8 @@
 
         @yield('content')
     </div>
+
+
 
     <script>
     new Vue({
@@ -259,6 +261,37 @@
             });
     });
     </script>
-    @yield('footer')
+    <footer class="bg-white text-black">
+        <div class="container mx-auto p-8">
+            <div class="flex flex-wrap">
+                <div class="md:w-1/4">
+                    <div class="flex items-center">
+                        <a href="#">
+                            <img class="w-52" src="{{ asset('assets/images/newlogomotomart.png') }}" alt="#" />
+                        </a>
+                    </div>
+
+                </div>
+                <div class="md:w-1/2 md:flex">
+                    <div class="md:w-1/2">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-bold mb-2">Motomart</h3>
+                            <ul>
+                                <li><a href="{{ url('/') }}" class="text-black-300 hover:text-danger">Motomart</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <h2 class="text-xl font-bold mb-2">Contact</h2>
+                        <p class="mb-2"><strong>ADDRESS:</strong> Caloocan City</p>
+                        <p class="mb-2"><strong>TELEPHONE:</strong> 09991234567</p>
+                        <p><strong>EMAIL:</strong> motomart@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
 </body>
 </html>

@@ -23,7 +23,7 @@
         </transition>
 
         <div class="flex justify-end py-3">
-            <button type="button" class="bg-blue-500 text-white rounded py-2 px-8 hover:cursor-pointer disabled:opacity-50" :disabled="isSavingDisabled" @click="onSave">
+            <button type="button" class="bg-red-500 text-white rounded py-2 px-8 hover:cursor-pointer disabled:opacity-50" :disabled="isSavingDisabled" @click="onSave">
                 {{ trans('forum::general.save') }}
             </button>
         </div>

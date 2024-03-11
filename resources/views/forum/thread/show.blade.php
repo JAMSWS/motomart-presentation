@@ -98,7 +98,7 @@
                             <x-forum.button-link href="{{ Forum::route('post.create', $thread) }}">
                                 {{ trans('forum::general.new_reply') }}
                             </x-forum.button-link>
-                            <x-forum.button-link href="#quick-reply" class="btn btn-primary">
+                            <x-forum.button-link href="#quick-reply" class="btn btn-danger">
                                 {{ trans('forum::general.quick_reply') }}
                             </x-forum.button-link>
                         </x-forum.button-group>
