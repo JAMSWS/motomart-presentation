@@ -9,6 +9,6 @@ class CheckoutController extends Controller
 {
     public function index()
     {
-        return view('layouts.inc.frontend.checkout');
+        return view('frontend.checkout.index');
     }
 }

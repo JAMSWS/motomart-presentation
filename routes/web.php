@@ -24,18 +24,30 @@ Route::get('/',[App\Http\Controllers\Frontend\FrontendController::class, 'index'
 
 //Collections
 Route::get('/collections', [App\Http\Controllers\Frontend\FrontendController::class, 'categories']);
+// Route::get('/collections/{category_slug}', [App\Http\Controllers\Frontend\FrontendController::class, 'products']);
+Route::get('/collections/{category_slug}', [App\Http\Controllers\Frontend\FrontendController::class, 'products']);
+Route::get('/collections/{category_slug}/{product_name}', [App\Http\Controllers\Frontend\FrontendController::class, 'productsView']);
 
+//wishlist
+Route::middleware(['auth'])->group(function () {
+    Route::get('wishlist',[App\Http\Controllers\Frontend\WishlistController::class, 'index' ]);
+    Route::get('cart',[App\Http\Controllers\Frontend\CartController::class, 'index' ]);
+    Route::get('checkout',[App\Http\Controllers\Frontend\CheckoutController::class, 'index' ]);
+
+
+});
 // Check out
-Route::get('/checkout', [App\Http\Controllers\Frontend\CheckoutController::class, 'index']);
+// Route::get('/checkout', [App\Http\Controllers\Frontend\CheckoutController::class, 'index']);
 
 // Forum
-Route::get('/forum', [App\Http\Controllers\Frontend\ForumController::class,'index']);
+// Route::get('/forum', [App\Http\Controllers\Frontend\ForumController::class,'index']);
 
 //Shopping Cart
-Route::get('/shoppingcart', [App\Http\Controllers\Frontend\ShoppingCartController::class,'index']);
+// Route::get('/shoppingcart', [App\Http\Controllers\Frontend\ShoppingCartController::class,'index']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//Admin route
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function() {
 
     Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index']);
@@ -52,8 +64,6 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function() {
 
 
     });
-
-
 
     // Category Routes
     Route::controller(App\Http\Controllers\Admin\CategoryController::class)->group(function () {
@@ -92,11 +102,46 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function() {
     });
 
 
-
-
-
-
-
-
-
 });
+
+
+// Selling Center Routes
+// Route::middleware(['auth'])->group(function() {
+//     Route::prefix('sellercenter')->group(function() {
+//         Route::get('dashboard', [App\Http\Controllers\SellingCenter\DashboardController::class, 'index']);
+//         // Add more routes for managing products, categories, etc.
+
+
+
+
+//     });
+// });
+
+Route::prefix('sellercenter')->middleware(['auth','isSeller'])->group(function() {
+
+    Route::get('dashboard', [App\Http\Controllers\SellingCenter\DashboardController::class, 'index']);
+
+    //add product view product
+    Route::controller(App\Http\Controllers\SellingCenter\ProductController::class)->group(function () {
+        Route::get('/products', 'index');
+        Route::get('/products/create', 'create');
+        Route::post('/products', 'store');
+        Route::get('/products/{product}/edit', 'edit');
+        Route::put('/products/{product}', 'update');
+        Route::get('products/{product_id}/delete', 'destroy');
+        Route::get('product-image/{product_image_id}/delete','destroyImage');
+
+    });
+
+    //Reserved buyer
+    Route::controller(App\Http\Controllers\SellingCenter\ReservedBuyerController::class)->group(function () {
+        Route::get('/reservedbuyer', 'index');
+    });
+
+    // sellercenter/orders
+    Route::controller(App\Http\Controllers\SellingCenter\OrderController::class)->group(function () {
+        Route::get('/orders', 'index');
+    });
+});
+
+

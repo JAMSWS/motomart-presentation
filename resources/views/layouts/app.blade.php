@@ -7,15 +7,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
-    <title>@yield('title') </title>
+    <title> @yield('title') </title>
+
+    <meta name="description" content="@yield('meta_description')" />
+    <meta name="keyword" content="@yield('meta_keyword')" />
+    <meta name="author" content="Motomart" />
 
 
     <!-- Font Awesome -->
@@ -36,7 +38,11 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet" />
 
+    {{-- motomart icon --}}
+    <link rel="icon"  src="{{ asset('assets/images/newlogomotomart.png') }}">
+
     <!-- plugins:css -->
+
    <link rel="stylesheet" href="{{ asset('admin/vendors/mdi/css/materialdesignicons.min.css')}}">
    <link rel="stylesheet" href="{{ asset('admin/vendors/base/vendor.bundle.base.css')}}">
 
@@ -60,16 +66,26 @@
     <!-- Styles -->
     <link href="{{ asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+
+    {{-- owl css --}}
+    <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/owl.theme.default.min.css') }}">
+
     @livewireStyles
 
 </head>
-<body style="background-color: #ffffff">
+<body style="background-color: #727272">
     <div id="app">
 
 
 
 
         @include('layouts.inc.frontend.navbar')
+
+
 
 
         {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -160,16 +176,99 @@
             </div>
         </nav> --}}
 
+    <main>
 
-
-        <main>
             @yield('content')
-        </main>
+            <!-- footer start -->
+     <footer>
+        <div class="container">
+           <div class="row">
+              <div class="col-md-4">
+                  <div class="full">
+                     <div class="logo_footer">
+                       <a href="#"><img width="210" src="{{ asset('assets/images/newlogomotomart.png') }}" alt="#" /></a>
+                     </div>
+                     <div class="information_f">
+
+                       <p><strong>ADDRESS:</strong> Caloocan City</p>
+                       <p><strong>TELEPHONE:</strong> 09991234567</p>
+                       <p><strong>EMAIL:</strong> motomart@gmail.com</p>
+                     </div>
+                  </div>
+              </div>
+              <div class="col-md-8">
+                 <div class="row">
+                 <div class="col-md-7">
+                    <div class="row">
+                    <div class="col-md-4">
+                    <div class="widget_menu">
+                       <h3>Menu</h3>
+                       <ul>
+                          <li><a href="#">Home</a></li>
+                          <li><a href="#">About</a></li>
+                          <li><a href="#">Services</a></li>
+                          <li><a href="#">Contact</a></li>
+                       </ul>
+                    </div>
+                 </div>
+
+                    <div class="col-md-4">
+                        <div class="widget_menu">
+                        <h3>Account</h3>
+                        <ul>
+                            <li><a href="#">Account</a></li>
+                            <li><a href="#">Checkout</a></li>
+                        </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="widget_menu">
+                            <h3>Discussion</h3>
+                            <ul>
+                                <li><a href="{{ url('/forum') }}" class="hover-zoom">Forum</a></li>
+                            </ul>
+                        </div>
+                     </div>
+                </div>
+                 </div>
+                 <div class="col-md-4 ml-4">
+                    <div class="widget_menu">
+                       <h3>Become a Seller</h3>
+                       <div class="information_f">
+                         <p></p>
+                       </div>
+                       <div class="form_sub">
+                          <form>
+                             <fieldset>
+                                <div class="field">
+                                   {{-- <input type="email" placeholder="Enter Your Mail" name="email" />
+                                   <input type="submit" value="Subscribe" /> --}}
+                                   <a class="btn btn-danger"  wire:click="btnSellerCenter" href="{{ url('sellercenter/products') }}">Seller Center</a>
+                                </div>
+                             </fieldset>
+                          </form>
+                       </div>
+                    </div>
+                 </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </footer>
+     <!-- footer end -->
+
+     <div class="cpy_">
+        <p class="mx-auto">© 2024 All Rights Reserved By <a href="#">Motomart.com</a><br>
+        </p>
+     </div>
+    </main>
     </div>
 
 
     <!-- Scripts -->
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 
 
@@ -230,8 +329,17 @@
 </script>
 
 
+
     {{-- Login & register script --}}
     <script  src="{{ asset('assets/js-login/script.js') }}"></script>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script>
+        window.addEventListener('message', event => {
+        alertify.set('notifier','position', 'top-right');
+        alertify.notify(event.detail.text, event.detail.type);
+        });
+
+    </script>
 
     <!-- Scripts -->
     {{-- @vite(['public/assets/js/jquery-3.7.1.min.js']) --}}
@@ -239,8 +347,9 @@
     @vite(['public/assets/js/bootstrap.js'])
     @vite(['public/assets/js/custom.js'])
 
+    @yield('script')
     @livewireStyles
-
+    @stack('scripts')
 
 
 

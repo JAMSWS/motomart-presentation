@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Brand;
 
 use App\Models\Brand;
 use Livewire\Component;
+use App\Models\Category;
 use illuminate\Support\Str;
 use Livewire\WithPagination;
 
@@ -57,8 +58,9 @@ class Index extends Component
     //normal lang may error sa extends gumagana naman
     public function render()
     {
+        $categories = Category::where('status', '0')->get();
         $brands = Brand::orderBy('id', 'DESC')->paginate(10);
-        return view('livewire.admin.brand.index', ['brands' => $brands])
+        return view('livewire.admin.brand.index', ['brands' => $brands, 'categories' => $categories])
                         ->extends('layouts.admin')
                         ->section('content');
     }

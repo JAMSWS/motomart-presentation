@@ -1,5 +1,7 @@
-{{-- Modal register --}}
 
+
+
+  {{-- Modal register --}}
 
 <div wire.ignore.self class="modal fade" id="registermodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -10,10 +12,14 @@
             </button>
         </div>
         <div class="modal-body">
-            <form action="{{ route('register') }}" method="POST">
+          <form action="{{ route('register') }}" method="POST">
+
+           <div class="d-flex flex-column text-center logoContainer mb-5" id="logoContainer">
+              <img src="{{asset('assets/images/motomart.png')}}"
+           </div>
 
 
-          <div class="form-title text-center">
+          <div class="form-title text-center  mt-2">
             <h4>Sign Up</h4>
           </div>
           <div class="d-flex flex-column text-center">
@@ -65,30 +71,20 @@
                      @enderror
               </div>
 
-
-
               <button type="submit" class="btn  btn-block btn-round btn-danger" >
                 Create Account
               </button>
             </form>
 
-            <div class="text-center text-muted delimiter">or use a social network</div>
-            <div class="d-flex justify-content-center social-buttons">
-                <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Google">
-                    <i class="fab fa-google"></i>
-                  </button>
-                  <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Facebook">
-                    <i class="fab fa-facebook"></i>
-                  </button>
-            </di>
+           
           </div>
         </div>
         </form>
       </div>
 
-      {{-- masakit sa ulo dami bugs --}}
-        {{-- <div class="modal-footer d-flex justify-content-center">
-            <div class="signup-section">Already have an Account? <a href="#" id="switchToLogin" class="text-info">Login</a>.</div>
-        </div> --}}
+      <div class="modal-footer d-flex justify-content-center">
+        <div class="signup-section">Already have an account? <a href="#" id="switchToLogin" class="text-info">Sign in</a>.</div>
+      </div>
     </div>
   </div>
+

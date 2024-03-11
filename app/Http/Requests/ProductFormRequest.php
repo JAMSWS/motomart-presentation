@@ -32,11 +32,11 @@ class ProductFormRequest extends FormRequest
                 'string'
             ],
 
-            'slug' => [
-                'required',
-                'string',
-                'max:255'
-            ],
+            // 'slug' => [
+            //     'required',
+            //     'string',
+            //     'max:255'
+            // ],
 
             'brand' => [
                 'required',
@@ -50,10 +50,10 @@ class ProductFormRequest extends FormRequest
             ],
 
 
-            'small_description' => [
-                'required',
-                'string'
-            ],
+            // 'small_description' => [
+            //     'required',
+            //     'string'
+            // ],
 
             'original_price' => [
                 'required',
@@ -80,21 +80,21 @@ class ProductFormRequest extends FormRequest
 
             ],
 
-            'meta_title' => [
-                'required',
-                'string',
-                'max:255'
-            ],
+            // 'meta_title' => [
+            //     'required',
+            //     'string',
+            //     'max:255'
+            // ],
 
-            'meta_keyword' => [
-                'required',
-                'string'
-            ],
+            // 'meta_keyword' => [
+            //     'required',
+            //     'string'
+            // ],
 
-            'meta_description' => [
-                'required',
-                'string'
-            ],
+            // 'meta_description' => [
+            //     'required',
+            //     'string'
+            // ],
 
             'image' => [
                 'nullable',
