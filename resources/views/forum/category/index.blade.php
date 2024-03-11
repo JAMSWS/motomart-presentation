@@ -3,7 +3,7 @@
 
 @section ('content')
     <div class="flex flex-row justify-between my-3">
-        <h2 class="grow text-3xl font-medium">{{ trans('forum::general.index') }}</h2>
+        <h2 class="grow text-3xl font-medium">Home</h2>
 
         @can ('createCategories')
             <x-forum.button type="button" data-open-modal="create-category">
