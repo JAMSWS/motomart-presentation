@@ -13,6 +13,16 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
+            $table->string('tracking_no');
+            $table->string('fullname');
+            $table->string('email');
+            $table->string('phone');
+            $table->string('pincode');
+            $table->string('address');
+            $table->string('status_message');
+            $table->string('payment_mode');
+            $table->string('payment_id')->nullable();
             $table->timestamps();
         });
     }
