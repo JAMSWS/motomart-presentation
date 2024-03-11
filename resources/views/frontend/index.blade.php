@@ -54,7 +54,7 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-md-15" style="transform: translate(0%, -6%);">
+            <div class="col-md-15" style="transform: translate(0%, 0%);">
                 <div class="hero featured-carousel owl-carousel">
                     @foreach ($sliders as $key => $sliderItem)
                     <div class="item" {{ $key == 0 ? 'active':''}}>
@@ -226,7 +226,6 @@
           </a>
        </div>
     </div> --}}
-
 
 
     <div class="py-5 bg-white">

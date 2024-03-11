@@ -37,9 +37,10 @@
                     <li class="nav-item" role="presentation">
                       <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Home</button>
                     </li>
-                    <li class="nav-item" role="presentation">
+                    {{-- SEO TAGS --}}
+                    {{-- <li class="nav-item" role="presentation">
                       <button class="nav-link" id="seotag-tab" data-bs-toggle="tab" data-bs-target="#seotag-tab-pane" type="button" role="tab" aria-controls="seo-tab-pane" aria-selected="false">SEO Tags</button>
-                    </li>
+                    </li> --}}
                     <li class="nav-item" role="presentation">
                       <button class="nav-link" id="details-tab" data-bs-toggle="tab" data-bs-target="#details-tab-pane" type="button" role="tab" aria-controls="details-tab-pane" aria-selected="false">Details</button>
                     </li>
@@ -89,11 +90,11 @@
                             </select>
                         </div>
 
-
-                        <div class="mb-3">
+                        {{-- Small desc --}}
+                        {{-- <div class="mb-3">
                         <label>Small Description (500 Words)</label>
                         <textarea name="small_description" class="form-control" rows="10">{{ $product->small_description }}</textarea>
-                        </div>
+                        </div> --}}
 
                         <div class="mb-3">
                         <label>Description</label>
@@ -102,7 +103,7 @@
 
 
                     </div>
-                    <div class="tab-pane fade border p-3" id="seotag-tab-pane" role="tabpanel" aria-labelledby="seotag-tab" tabindex="0">
+                    {{-- <div class="tab-pane fade border p-3" id="seotag-tab-pane" role="tabpanel" aria-labelledby="seotag-tab" tabindex="0">
 
                         <div class="mb-3">
                             <label>Meta title</label>
@@ -119,7 +120,8 @@
                             <textarea name="meta_keyword" class="form-control" rows="10">{{ $product->meta_keyword }}</textarea>
                         </div>
 
-                    </div>
+                    </div> --}}
+
                     <div class="tab-pane fade border p-3" id="details-tab-pane" role="tabpanel" aria-labelledby="details-tab" tabindex="0">
                         <div class="row">
                             <div class="col-md-4">
@@ -140,15 +142,15 @@
                                         <input type="text" name="quantity" value="{{ $product->quantity }}" class="form-control">
                                     </div>
 
-                                    <div class="mb-3">
+                                    <div class="mb-3"  style="display: none;"   >
                                         <label>Trending</label>
-                                        <input type="checkbox" value="{{ $product->trending == '1' ? 'checked' : '' }}" name="trending" />
+                                        <input type="checkbox" name="trending" checked>
                                     </div>
 
-                                    <div class="mb-3">
+                                    {{-- <div class="mb-3">
                                         <label>Status</label>
                                         <input type="checkbox" value="{{ $product->status == '1' ? 'checked' : '' }}" name="status" />
-                                    </div>
+                                    </div> --}}
 
                                 </div>
                             </div>

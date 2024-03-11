@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-{{ $product->meta_title }}
+{{ $product->name }}
 @endsection
 
 @section('meta_keyword')
