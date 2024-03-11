@@ -15,7 +15,7 @@
         <div class="flex justify-between flex-row-reverse">
             @if ($category->accepts_threads)
                 @can ('createThreads', $category)
-                    <x-forum.button-link href="{{ Forum::route('thread.create', $category) }}" class="btn btn-primary float-end">{{ trans('forum::threads.new_thread') }}</x-forum.button-link>
+                    <x-forum.button-link href="{{ Forum::route('thread.create', $category) }}" class="btn btn-danger float-end">{{ trans('forum::threads.new_thread') }}</x-forum.button-link>
                 @endcan
             @endif
 

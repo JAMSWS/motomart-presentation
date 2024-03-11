@@ -178,14 +178,8 @@
 
     <main>
 
-
             @yield('content')
-
-
-
-
             <!-- footer start -->
-
      <footer>
         <div class="container">
            <div class="row">
@@ -195,6 +189,7 @@
                        <a href="#"><img width="210" src="{{ asset('assets/images/newlogomotomart.png') }}" alt="#" /></a>
                      </div>
                      <div class="information_f">
+
                        <p><strong>ADDRESS:</strong> Caloocan City</p>
                        <p><strong>TELEPHONE:</strong> 09991234567</p>
                        <p><strong>EMAIL:</strong> motomart@gmail.com</p>
@@ -205,7 +200,7 @@
                  <div class="row">
                  <div class="col-md-7">
                     <div class="row">
-                       <div class="col-md-6">
+                    <div class="col-md-4">
                     <div class="widget_menu">
                        <h3>Menu</h3>
                        <ul>
@@ -216,18 +211,28 @@
                        </ul>
                     </div>
                  </div>
-                 <div class="col-md-6">
-                    <div class="widget_menu">
-                       <h3>Account</h3>
-                       <ul>
-                          <li><a href="#">Account</a></li>
-                          <li><a href="#">Checkout</a></li>
-                       </ul>
+
+                    <div class="col-md-4">
+                        <div class="widget_menu">
+                        <h3>Account</h3>
+                        <ul>
+                            <li><a href="#">Account</a></li>
+                            <li><a href="#">Checkout</a></li>
+                        </ul>
+                        </div>
                     </div>
+
+                    <div class="col-md-4">
+                        <div class="widget_menu">
+                            <h3>Discussion</h3>
+                            <ul>
+                                <li><a href="{{ url('/forum') }}" class="hover-zoom">Forum</a></li>
+                            </ul>
+                        </div>
+                     </div>
+                </div>
                  </div>
-                    </div>
-                 </div>
-                 <div class="col-md-5">
+                 <div class="col-md-4 ml-4">
                     <div class="widget_menu">
                        <h3>Become a Seller</h3>
                        <div class="information_f">
@@ -255,12 +260,9 @@
 
      <div class="cpy_">
         <p class="mx-auto">© 2024 All Rights Reserved By <a href="#">Motomart.com</a><br>
-
-
-
         </p>
      </div>
-        </main>
+    </main>
     </div>
 
 
