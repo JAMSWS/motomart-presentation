@@ -39,7 +39,7 @@
     <link href="css/font-awesome.min.css" rel="stylesheet" />
 
     {{-- motomart icon --}}
-    <link rel="icon"  src="{{ asset('assets/images/newlogomotomart.png') }}">
+    <link rel="icon"  src="{{ asset('assets/images/minimoto.png') }}">
 
     <!-- plugins:css -->
 
@@ -335,8 +335,11 @@
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script>
         window.addEventListener('message', event => {
-        alertify.set('notifier','position', 'top-right');
-        alertify.notify(event.detail.text, event.detail.type);
+        if(event.detail)
+        {
+            alertify.set('notifier','position', 'top-right');
+            alertify.notify(event.detail.text, event.detail.type);
+        }
         });
 
     </script>

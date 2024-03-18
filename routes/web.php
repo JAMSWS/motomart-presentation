@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +19,14 @@ use Illuminate\Support\Facades\Auth;
 // });
 
 Auth::routes();
+
+
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+
+
 // Landing Page
 Route::get('/',[App\Http\Controllers\Frontend\FrontendController::class, 'index']);
 
@@ -33,6 +41,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('wishlist',[App\Http\Controllers\Frontend\WishlistController::class, 'index' ]);
     Route::get('cart',[App\Http\Controllers\Frontend\CartController::class, 'index' ]);
     Route::get('checkout',[App\Http\Controllers\Frontend\CheckoutController::class, 'index' ]);
+    Route::get('/orders',[App\Http\Controllers\Frontend\OrderController::class, 'index']);
+    Route::get('/orders/{orderId}',[App\Http\Controllers\Frontend\OrderController::class, 'show']);
+
 });
 
 Route::get('thank-you', [App\Http\Controllers\Frontend\FrontendController::class, 'thankyou']);
@@ -139,9 +150,9 @@ Route::prefix('sellercenter')->middleware(['auth','isSeller'])->group(function()
     });
 
     // sellercenter/orders
-    Route::controller(App\Http\Controllers\SellingCenter\OrderController::class)->group(function () {
-        Route::get('/orders', 'index');
-    });
+    // Route::controller(App\Http\Controllers\SellingCenter\OrderController::class)->group(function () {
+    //     Route::get('/orders', 'index');
+    // });
 });
 
 
