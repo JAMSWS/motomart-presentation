@@ -203,11 +203,40 @@ class CheckoutShow extends Component
 
 
     public function placeOrder()
+    //  {
+    //      $this->validate();
+    //      $order = Order::create([
+    //          'user_id' => auth()->user()->id,
+    //          'tracking_no' => 'motomart-'.Str::random(10),
+    //          'fullname' => $this->fullname,
+    //          'email' => $this->email,
+    //          'phone' => $this->phone,
+    //          'pincode' => $this->pincode,
+    //          'address' => $this->address,
+    //          'status_message' => 'in progress',
+    //          'payment_mode' => $this->payment_mode,
+    //          'payment_id' => $this->payment_id,
+    //      ]);
+
+    //      foreach ($this->carts as $cartItem) {
+    //          Orderitem::create([
+    //              'order_id' => $order->id,
+    //              'product_id' => $cartItem->product_id,
+    //              'product_color_id' => $cartItem->product_color_id,
+    //              'quantity' => $cartItem->quantity,
+    //              'price' => $cartItem->product->selling_price,
+    //          ]);
+    //      }
+
+    //      return $order;
+    //  }
     // {
     //     $this->validate();
+
     //     $order = Order::create([
     //         'user_id' => auth()->user()->id,
-    //         'tracking_no' => 'motomart-'.Str::random(10),
+    //         'shop_product_owner_id' => $this->carts->first()->product->user_id, // Assuming the product owner is the same for all items in the cart
+    //         'tracking_no' => 'motomart-' . Str::random(10),
     //         'fullname' => $this->fullname,
     //         'email' => $this->email,
     //         'phone' => $this->phone,
@@ -216,10 +245,11 @@ class CheckoutShow extends Component
     //         'status_message' => 'in progress',
     //         'payment_mode' => $this->payment_mode,
     //         'payment_id' => $this->payment_id,
+
     //     ]);
 
     //     foreach ($this->carts as $cartItem) {
-    //         Orderitem::create([
+    //         $orderItems = Orderitem::create([
     //             'order_id' => $order->id,
     //             'product_id' => $cartItem->product_id,
     //             'product_color_id' => $cartItem->product_color_id,
@@ -230,33 +260,41 @@ class CheckoutShow extends Component
 
     //     return $order;
     // }
+
     {
-        $this->validate();
+        {
+            $this->validate();
 
-        $order = Order::create([
-            'user_id' => auth()->user()->id,
-            'tracking_no' => 'motomart-' . Str::random(10),
-            'fullname' => $this->fullname,
-            'email' => $this->email,
-            'phone' => $this->phone,
-            'pincode' => $this->pincode,
-            'address' => $this->address,
-            'status_message' => 'in progress',
-            'payment_mode' => $this->payment_mode,
-            'payment_id' => $this->payment_id,
-        ]);
+            // Assuming all products in the cart belong to the same seller,
+            // so we'll just take the seller ID from the first product in the cart
+            $sellerId = $this->carts->first()->product->user_id;
 
-        foreach ($this->carts as $cartItem) {
-            $orderItems = Orderitem::create([
-                'order_id' => $order->id,
-                'product_id' => $cartItem->product_id,
-                'product_color_id' => $cartItem->product_color_id,
-                'quantity' => $cartItem->quantity,
-                'price' => $cartItem->product->selling_price,
+            $order = Order::create([
+                'user_id' => auth()->user()->id,
+                'shop_product_owner_id' => $sellerId, // Record the seller ID
+                'tracking_no' => 'motomart-'.Str::random(10),
+                'fullname' => $this->fullname,
+                'email' => $this->email,
+                'phone' => $this->phone,
+                'pincode' => $this->pincode,
+                'address' => $this->address,
+                'status_message' => 'in progress',
+                'payment_mode' => $this->payment_mode,
+                'payment_id' => $this->payment_id,
             ]);
-        }
 
-        return $order;
+            foreach ($this->carts as $cartItem) {
+                Orderitem::create([
+                    'order_id' => $order->id,
+                    'product_id' => $cartItem->product_id,
+                    'product_color_id' => $cartItem->product_color_id,
+                    'quantity' => $cartItem->quantity,
+                    'price' => $cartItem->product->selling_price,
+                ]);
+            }
+
+            return $order;
+        }
     }
 
     public function codOrder()

@@ -266,7 +266,7 @@
             <div class="flex flex-wrap">
                 <div class="md:w-1/4">
                     <div class="flex items-center">
-                        <a href="#">
+                        <a href="{{ url('/') }}">
                             <img class="w-52" src="{{ asset('assets/images/newlogomotomart.png') }}" alt="#" />
                         </a>
                     </div>

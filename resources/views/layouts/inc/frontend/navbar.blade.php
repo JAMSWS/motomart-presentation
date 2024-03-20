@@ -19,9 +19,9 @@
         <span class="fa fa-bars border border-color-black p-2  rounded-2"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbar-toggle">
-        <form class="d-flex me-lg-5 me-md-0" role="search">
+        <form class="d-flex me-lg-5 me-md-0" role="search" action="{{ url('search') }}" method="GET">
             <div class="input-group">
-                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control" name="search" value="" placeholder="Search" aria-label="Search">
                 <button class="btn bg-danger" type="submit"><i class="fa fa-search"></i></button>
             </div>
         </form>

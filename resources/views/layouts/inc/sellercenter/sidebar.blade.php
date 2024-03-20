@@ -2,12 +2,12 @@
     <ul class="nav">
 
 
-        {{-- <li class="nav-item">
+        <li class="nav-item">
             <a class="nav-link" href="dashboard">
               <i class="mdi mdi-view-dashboard menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
-          </li> --}}
+        </li>
 
 
 
@@ -29,7 +29,7 @@
 
       <li class="nav-item">
         <a class="nav-link" href="{{ url('sellercenter/orders') }}">
-          <i class="mdi mdi-chart-pie menu-icon"></i>
+          <i class="mdi mdi-sale menu-icon"></i>
           <span class="menu-title">Orders</span>
         </a>
       </li>

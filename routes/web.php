@@ -36,6 +36,8 @@ Route::get('/collections', [App\Http\Controllers\Frontend\FrontendController::cl
 Route::get('/collections/{category_slug}', [App\Http\Controllers\Frontend\FrontendController::class, 'products']);
 Route::get('/collections/{category_slug}/{product_name}', [App\Http\Controllers\Frontend\FrontendController::class, 'productsView']);
 
+Route::get('/search', [App\Http\Controllers\Frontend\FrontendController::class, 'searchProducts']);
+
 //wishlist
 Route::middleware(['auth'])->group(function () {
     Route::get('wishlist',[App\Http\Controllers\Frontend\WishlistController::class, 'index' ]);
@@ -44,17 +46,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/orders',[App\Http\Controllers\Frontend\OrderController::class, 'index']);
     Route::get('/orders/{orderId}',[App\Http\Controllers\Frontend\OrderController::class, 'show']);
 
+
 });
 
 Route::get('thank-you', [App\Http\Controllers\Frontend\FrontendController::class, 'thankyou']);
-// Check out
-// Route::get('/checkout', [App\Http\Controllers\Frontend\CheckoutController::class, 'index']);
-
-// Forum
-// Route::get('/forum', [App\Http\Controllers\Frontend\ForumController::class,'index']);
-
-//Shopping Cart
-// Route::get('/shoppingcart', [App\Http\Controllers\Frontend\ShoppingCartController::class,'index']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -112,7 +107,17 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function() {
 
     });
 
+    Route::controller(App\Http\Controllers\Admin\UserController::class)->group(function () {
+        Route::get('/users', 'index');
+        Route::get('/users/create', 'create');
+        Route::post('/users', 'store');
+        Route::get('/users/{user_id}/edit', 'edit');
+        Route::put('users/{user_id}', 'update');
+        Route::get('users/{user_id}/delete', 'destroy');
 
+
+
+    });
 });
 
 
@@ -145,9 +150,24 @@ Route::prefix('sellercenter')->middleware(['auth','isSeller'])->group(function()
     });
 
     //Reserved buyer
-    Route::controller(App\Http\Controllers\SellingCenter\ReservedBuyerController::class)->group(function () {
-        Route::get('/reservedbuyer', 'index');
+    // Route::controller(App\Http\Controllers\SellingCenter\ReservedBuyerController::class)->group(function () {
+    //     Route::get('/reservedbuyer', 'index');
+    // });
+
+
+    //Orders
+    Route::controller(App\Http\Controllers\SellingCenter\OrderController::class)->group(function () {
+        Route::get('/orders', 'index');
+        Route::get('/orders/{orderId}', 'show');
+        Route::put('/orders/{orderId}', 'updateOrderStatus');
+
+        Route::get('/invoice/{orderId}', 'viewInvoice');
+        Route::get('/invoice/{orderId}/generate', 'generateInvoice');
+
+
     });
+
+
 
     // sellercenter/orders
     // Route::controller(App\Http\Controllers\SellingCenter\OrderController::class)->group(function () {
