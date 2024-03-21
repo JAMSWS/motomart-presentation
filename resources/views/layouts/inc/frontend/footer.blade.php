@@ -17,6 +17,7 @@
                     <div class="mb-2"><a href="{{ url('/contact') }}" class="text-white">Contact Us</a></div>
                     <div class="mb-2"><a href="{{ url('/forum') }}" class="text-white">Forum</a></div>
                     <div class="mb-2"><a href="{{ url('/sitemap') }}" class="text-white">Sitemaps</a></div>
+                    <div class="mb-2"><a href="{{ url('/sellercenter/dashboard') }}" class="text-white">Seller Center</a></div>
                 </div>
                 <div class="col-md-3">
                     <h4 class="footer-heading">Shop Now</h4>
