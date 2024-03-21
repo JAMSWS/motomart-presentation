@@ -21,7 +21,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbar-toggle">
         <form class="d-flex me-lg-5 me-md-0" role="search" action="{{ url('search') }}" method="GET">
             <div class="input-group">
-                <input class="form-control" name="search" value="" placeholder="Search" aria-label="Search">
+                <input class="form-control" name="search" value="{{ Request::get('search') }}" placeholder="Search" aria-label="Search">
                 <button class="btn bg-danger" type="submit"><i class="fa fa-search"></i></button>
             </div>
         </form>
@@ -52,7 +52,8 @@
                 <a class="nav-link dropdown-toggle text-black" href="#" id="navbarDropdown"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-user"></i> {{ Auth::user()->name }}
                 </a>
-                <ul class="dropdown-menu  dropdown-menu-end mt-0 me-3">
+                <ul class="dropdown-menu dropdown-menu-end mt-0 me-3">
+                    <li><a class="dropdown-item" href="{{ url('/profile') }}"><i class="fa fa-profile"></i> Profile </a></li>
                     <li><a class="dropdown-item" href="{{ url('/wishlist') }}"><i class="fa fa-heart"></i> My Wishlist</a></li>
                     <li><a class="dropdown-item" href="{{ url('/cart') }}"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
 
@@ -80,6 +81,14 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-black" href="{{ url('/collections') }}">All Categories</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-black" href="{{ url('/new-arrivals') }}">New Arrivals</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-black" href="{{ url('/featured-products') }}">Featured Products</a>
                 </li>
             </ul>
         </div>

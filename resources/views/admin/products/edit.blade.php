@@ -147,6 +147,11 @@
                                     </div>
 
                                     <div class="mb-3">
+                                        <label>Featured</label>
+                                        <input type="checkbox" name="featured" >
+                                    </div>
+
+                                    <div class="mb-3">
                                         <label>Status</label>
                                         <input type="checkbox" value="{{ $product->status == '1' ? 'checked' : '' }}" name="status" />
                                     </div>

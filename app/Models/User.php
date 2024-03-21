@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Product;
+use App\Models\UserDetail;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -27,6 +28,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'role_as',
         'seller',
     ];
+
+    public function userDetail()
+    {
+        return $this->hasOne(UserDetail::class, 'user_id', 'id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.

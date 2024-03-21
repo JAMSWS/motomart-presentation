@@ -1,79 +1,85 @@
-<footer>
-    <div class="container">
-       <div class="row">
-          <div class="col-md-4">
-              <div class="full">
-                 <div class="logo_footer">
-                   <a href="{{ url('/') }}"><img width="210" src="{{ asset('assets/images/newlogomotomart.png') }}" alt="#" /></a>
-                 </div>
-                 <div class="information_f">
+<div>
+    <div class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="footer-heading">
+                      <a href="{{ url('/') }}"><img width="210" src="{{ asset('assets/images/newlogomotomart.png') }}" alt="#" /></a>
+                    </div>
+                    <div class="footer-underline"></div>
 
-                   <p><strong>ADDRESS:</strong> Caloocan City</p>
-                   <p><strong>TELEPHONE:</strong> 09991234567</p>
-                   <p><strong>EMAIL:</strong> motomart@gmail.com</p>
-                 </div>
-              </div>
-          </div>
-          <div class="col-md-8">
-             <div class="row">
-             <div class="col-md-7">
-                <div class="row">
-                <div class="col-md-4">
-                <div class="widget_menu">
-                   <h3>Menu</h3>
-                   <ul>
-                      <li><a href="{{ url('/') }}">Home</a></li>
-                      <li><a href="/cart">Cart</a></li>
-                      <li><a href="/wishlist">Wishlist</a></li>
-                   </ul>
-                </div>
              </div>
-
-                <div class="col-md-4">
-                    <div class="widget_menu">
-                    <h3>Account</h3>
-                    <ul>
-                        <li><a href="/checkout">Checkout</a></li>
-                    </ul>
+                <div class="col-md-3">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <div class="footer-underline"></div>
+                    <div class="mb-2"><a href="{{ url('/') }}" class="text-white">Home</a></div>
+                    <div class="mb-2"><a href="{{ url('/about-us') }}" class="text-white">About Us</a></div>
+                    <div class="mb-2"><a href="{{ url('/contact') }}" class="text-white">Contact Us</a></div>
+                    <div class="mb-2"><a href="{{ url('/forum') }}" class="text-white">Forum</a></div>
+                    <div class="mb-2"><a href="{{ url('/sitemap') }}" class="text-white">Sitemaps</a></div>
+                </div>
+                <div class="col-md-3">
+                    <h4 class="footer-heading">Shop Now</h4>
+                    <div class="footer-underline"></div>
+                    <div class="mb-2"><a href="{{ url('/collections') }}" class="text-white">Collections</a></div>
+                    {{-- <div class="mb-2"><a href="{{ url('/trending-products') }}" class="text-white">Trending Products</a></div> --}}
+                    <div class="mb-2"><a href="{{ url('/new-arrivals') }}" class="text-white">New Arrivals Products</a></div>
+                    <div class="mb-2"><a href="{{ url('/featured-products') }}" class="text-white">Featured Products</a></div>
+                    <div class="mb-2"><a href="{{ url('/cart') }}" class="text-white">Cart</a></div>
+                </div>
+                <div class="col-md-3">
+                    <h4 class="footer-heading">Reach Us</h4>
+                    <div class="footer-underline"></div>
+                    <div class="mb-2">
+                        <p>
+                            <i class="fa fa-map-marker"></i> {{ $appSetting->address ?? 'address' }}
+                        </p>
+                    </div>
+                    <div class="mb-2">
+                        <a href="" class="text-white">
+                            <i class="fa fa-phone"></i> {{ $appSetting->phone1 ?? 'phone 1' }}
+                        </a>
+                    </div>
+                    <div class="mb-2">
+                        <a href="" class="text-white">
+                            <i class="fa fa-envelope"></i> {{ $appSetting->email1 ?? 'email 1' }}
+                        </a>
                     </div>
                 </div>
-
-                <div class="col-md-4">
-                    <div class="widget_menu">
-                        <h3>Discussion</h3>
-                        <ul>
-                            <li><a href="{{ url('/forum') }}" class="hover-zoom">Forum</a></li>
-                        </ul>
-                    </div>
-                 </div>
             </div>
-             </div>
-             <div class="col-md-4 ml-4">
-                <div class="widget_menu">
-                   <h3>Become a Seller</h3>
-                   <div class="information_f">
-                     <p></p>
-                   </div>
-                   <div class="form_sub">
-                      <form>
-                         <fieldset>
-                            <div class="field">
-                               {{-- <input type="email" placeholder="Enter Your Mail" name="email" />
-                               <input type="submit" value="Subscribe" /> --}}
-                               <a class="btn btn-danger"  wire:click="btnSellerCenter" href="{{ url('sellercenter/products') }}">Seller Center</a>
-                            </div>
-                         </fieldset>
-                      </form>
-                   </div>
-                </div>
-             </div>
-             </div>
-          </div>
-       </div>
+        </div>
     </div>
- </footer>
+    <div class="copyright-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <p class=""> &copy; 2024 - Motomart. All rights reserved.</p>
+                </div>
+                <div class="col-md-4">
+                    {{-- <div class="social-media">
+                        <label class="text-white">Get Connected:</label>
+                        {{ $appSetting->address ?? 'address' }}
+                        @if($appSetting->facebook)
+                            <a href="{{ $appSetting->facebook }}" target="_blank"><i class="fa-brands fa-square-facebook" style="color: #74C0FC;"></i></a>
+                        @endif
 
- <div class="cpy_">
-    <p class="mx-auto">© 2024 All Rights Reserved By <a href="#">Motomart.com</a><br>
-    </p>
- </div>
+                        @if($appSetting->twitter)
+                            <a href="{{ $appSetting->twitter }}" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                        @endif
+
+                        @if($appSetting->instagram)
+                            <a href="{{ $appSetting->instagram }}" target="_blank"><i class="fa-brands fa-square-instagram"></i></a>
+                        @endif
+
+                        @if($appSetting->youtube)
+                            <a href="{{ $appSetting->instagram }}" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                        @endif
+
+
+
+                    </div> --}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

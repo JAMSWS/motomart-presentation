@@ -14,11 +14,37 @@ class FrontendController extends Controller
     public function index()
     {
         $sliders = Slider::where('status', '0')->get();
-        $trendingProduct = Product::where('trending', '1')->latest()->take(15)->get();
+        $trendingProduct = Product::where('trending', '1')->latest()->take(14)->get();
         $products = Product::all();
-        return view('frontend.index', compact('sliders', 'trendingProduct'));
+        $newArrivalsProduct = Product::latest()->take(14)->get();
+        $featuredProducts = Product::where('featured', '1')->latest()->take(14)->get();
+        return view('frontend.index', compact('sliders', 'trendingProduct', 'newArrivalsProduct', 'featuredProducts'));
     }
 
+    public function searchProducts(Request $request)
+    {
+        if($request->search)
+        {
+            $searchProducts = Product::where('name', 'LIKE', '%'.$request->search.'%')->latest()->paginate(5);
+            return view('frontend.pages.search', compact('searchProducts'));
+        }
+        else
+        {
+            return redirect()->back()->with('message', 'Empty Search');
+        }
+    }
+
+    public function newArrival(){
+        $newArrivalsProduct = Product::latest()->take(6)->get();
+        return view('frontend.pages.new-arrival', compact( 'newArrivalsProduct'));
+
+    }
+
+    public function featuredProducts()
+    {
+        $featuredProducts = Product::where('featured', '1')->latest()->take(6)->get();
+        return view('frontend.pages.featured-products', compact( 'featuredProducts'));
+    }
     public function categories()
     {
         $categories = Category::where('status','0')->get();
@@ -67,16 +93,5 @@ class FrontendController extends Controller
         return view('frontend.thank-you');
     }
 
-    public function searchProducts(Request $request)
-    {
-        if($request->search)
-        {
-            $searchProducts = Product::where('name', 'LIKE', '%'.$request->search.'%')->latest()->paginate(15);
-            return view('frontend.pages.search', compact('searchProducts'));
-        }
-        else
-        {
-            return redirect()->back()->with('message', 'Empty Search');
-        }
-    }
+
 }
