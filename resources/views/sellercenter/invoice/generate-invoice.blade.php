@@ -115,7 +115,7 @@
             </tr>
             <tr>
                 <td>Ordered Date:</td>
-                <td>{{ $order->created_at->format('d-m-Y:i A') }}</td>
+                <td>{{ $order->created_at->format('d-m-Y: h:ia') }}</td>
 
                 <td>Phone:</td>
                 <td>{{ $order->phone }}</td>

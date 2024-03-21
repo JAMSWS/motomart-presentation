@@ -6,8 +6,10 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Mail\invoiceOrderMailable;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -85,4 +87,28 @@ class OrderController extends Controller
             return redirect('sellercenter/orders')->with('message','Order ID not found');
         }
     }
+
+    public function mailInvoice(int $orderId)
+    {
+        // Retrieve the order only if it belongs to the authenticated user
+        $order = Auth::user()->orders()->find($orderId);
+
+        try
+        {
+            Mail::to("$order->email")->send(new invoiceOrderMailable($order));
+            return redirect('sellercenter/orders/'.$orderId)->with('message', 'Invoice Mail has been sent to ' .$order->email);
+
+        }
+        catch(\Exception $e)
+        {
+            return redirect('sellercenter/orders/'.$orderId)->with('message', 'Something Went Wrong!');
+        }
+
+
+
+    }
+
+
+
+
 }

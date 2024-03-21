@@ -65,6 +65,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/exzoom/jquery.exzoom.css')}}" rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
@@ -342,6 +343,10 @@
 
     </script>
 
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+        crossorigin="anonymous"></script>
+        <script  src="{{ asset('assets/exzoom/jquery.exzoom.js') }}"></script>
     <!-- Scripts -->
     {{-- @vite(['public/assets/js/jquery-3.7.1.min.js']) --}}
     {{-- @vite(['public/assets/js/bootstrap.bundle.min.js']) --}}

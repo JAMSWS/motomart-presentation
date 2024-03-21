@@ -25,6 +25,10 @@
                                 <a href="{{ url('sellercenter/invoice/'.$order->id) }}" target="_blank" class="btn btn-warning btn-sm float-end mx-1 text-white">
                                     View Invoice
                                 </a>
+
+                                <a href="{{ url('sellercenter/invoice/'.$order->id.'/mail') }}" class="btn btn-info btn-sm float-end mx-1 text-white">
+                                    Send Invoice Via Email
+                                </a>
                             </h4>
                         </div>
 
@@ -36,7 +40,7 @@
                                     <hr>
                                     <h6>Order ID: {{ $order->id }}</h6>
                                     <h6>Tracking ID: {{ $order->tracking_no }}</h6>
-                                    <h6>Order Created Date:  {{ $order->created_at->format('d-m-Y:i A') }}</h6>
+                                    <h6>Order Created Date:  {{ $order->created_at->format('d-m-Y: h:ia') }}</h6>
                                     <h6>Payment Mode:{{ $order->payment_mode }}</h6>
                                     <h6 class="border p-2 text-success">
                                         Order Status Message: <span class="text-uppercase">{{ $order->status_message }}</span>

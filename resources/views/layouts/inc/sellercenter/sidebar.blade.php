@@ -2,8 +2,8 @@
     <ul class="nav">
 
 
-        <li class="nav-item">
-            <a class="nav-link" href="dashboard">
+        <li class="nav-item {{ Request::is('sellercenter/dashboard') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ url('sellercenter/dashboard') }}">
               <i class="mdi mdi-view-dashboard menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
@@ -27,7 +27,7 @@
 
 
 
-      <li class="nav-item">
+      <li class="nav-item {{ Request::is('sellercenter/orders') ? 'active' : '' }}">
         <a class="nav-link" href="{{ url('sellercenter/orders') }}">
           <i class="mdi mdi-sale menu-icon"></i>
           <span class="menu-title">Orders</span>

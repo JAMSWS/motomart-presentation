@@ -174,6 +174,8 @@ Route::prefix('sellercenter')->middleware(['auth','isSeller'])->group(function()
         Route::get('/invoice/{orderId}', 'viewInvoice');
         Route::get('/invoice/{orderId}/generate', 'generateInvoice');
 
+        Route::get('/invoice/{orderId}/mail', 'mailInvoice');
+
 
     });
 
